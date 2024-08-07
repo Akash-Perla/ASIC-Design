@@ -32,7 +32,7 @@ Now, we create the object file `sum1ton.o` .
 
 ![image](https://github.com/user-attachments/assets/08c9d699-5237-4020-808b-5d19ccd24250)
 
-As soon as we press the Enter Key, a huge list opcodes are displayed on terminal. But our focus is on the main section of the program. Type :/main to hover to that portion.
+As soon as we press the Enter Key, a huge list opcodes are displayed on terminal. But our focus is on the main section of the program. Type `:/main` to hover to that portion.
 
 v![image](https://github.com/user-attachments/assets/e72e313c-bb12-4928-b743-0de1567e74ad)
 
@@ -43,8 +43,6 @@ For the "main" section, we can determine the number of instructions by subtracti
 
 The total number of instructions are 15.
 
-# Task-2
-
 Now, we compile the C program using RISC - V compiler using Ofast optimization.
 
 ![image](https://github.com/user-attachments/assets/3de390ef-3f7d-4a14-99ad-56ce6a19216d)
@@ -53,7 +51,7 @@ Now, we create the object file `sum1ton.o` .
 
 ![image](https://github.com/user-attachments/assets/08c9d699-5237-4020-808b-5d19ccd24250)
 
-As soon as we press the Enter Key, a huge list opcodes are displayed on terminal. But our focus is on the main section of the program. Type :/main to hover to that portion.
+As soon as we press the Enter Key, a huge list opcodes are displayed on terminal. But our focus is on the main section of the program. Type `:/main` to hover to that portion.
 
 ![image](https://github.com/user-attachments/assets/95410174-0e12-47f4-a6bd-a3060ada6416)
 
@@ -63,6 +61,8 @@ For the "main" section, we can determine the number of instructions by subtracti
 ![image](https://github.com/user-attachments/assets/74a22175-e3fc-4897-93d2-0374163e75ee)
 
 The total number of instructions are 12.
+
+# Task-2
 
  Run the `sum1ton.o` in the spike simulator in order to debug the code.
 
