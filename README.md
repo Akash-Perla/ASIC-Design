@@ -58,15 +58,15 @@ For the "main" section, we can determine the number of instructions by subtracti
 
 The total number of instructions are 12
 
-We compile the C code on the Spike RISC-V simulator using the Proxy kernel.  
+ Run the `sum1ton.o` in the spike simulator in order to debug the code
 
 ![image](https://github.com/user-attachments/assets/377b644a-8fa3-47d7-860a-55999ba44559)
 
-Run the `sum1ton.o` in the spike simulator in order to debug the code
+Runs the `sum1ton.o` object file on the Spike RISC-V simulator with the Proxy Kernel and enables debugging mode
 
 ![image](https://github.com/user-attachments/assets/04899006-ed76-4c1a-9ba4-bc28c07a7a25)
 
-Runs the `sum1ton.o` object file on the Spike RISC-V simulator with the Proxy Kernel and enables debugging mode
+We now bring the pc(program counter) to the start of the main function. We now check the contents of the register a2 before and after running the instructions. After executing the commands, we observe that the registors a0 aand a2 are loaded properly
 
 ![image](https://github.com/user-attachments/assets/8428f4bd-f3d0-41b5-b5c1-2af564ffa88f)
 ![image](https://github.com/user-attachments/assets/4db3ccff-d382-41ff-8595-6ae795d193e2)
