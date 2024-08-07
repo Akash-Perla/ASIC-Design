@@ -14,8 +14,6 @@ The code is compiled using the GCC compiler, producing an output file named a.ou
 
 ![image](https://github.com/user-attachments/assets/15a83abf-13fb-4822-ac38-754fba4dff68)
 
-# Task-2
-
 Now, the parameter 'n' in `sum1ton.c` is changed from 5 to 100
 
 ![image](https://github.com/user-attachments/assets/cf321036-15cc-422c-84a3-c039fbb1798a)
@@ -39,6 +37,8 @@ For the "main" section, we can determine the number of instructions by subtracti
 
 The total number of instructions are 15
 
+# Task-2
+
 Now, we compile the C program using RISC - V compiler using Ofast optimization
 
 ![image](https://github.com/user-attachments/assets/3de390ef-3f7d-4a14-99ad-56ce6a19216d)
@@ -58,13 +58,15 @@ For the "main" section, we can determine the number of instructions by subtracti
 
 The total number of instructions are 12
 
-Now, we perform debugging of the main section of the `sum1ton.c` and observe the values of register after every step. We compile the code using spike simulator
+We compile the C code on the Spike RISC-V simulator using the Proxy kernel.  
 
 ![image](https://github.com/user-attachments/assets/377b644a-8fa3-47d7-860a-55999ba44559)
 
-Execute the sum1ton.o (i.e. object file) in the spike simulator in order to debug the code
+Run the `sum1ton.o` in the spike simulator in order to debug the code
 
 ![image](https://github.com/user-attachments/assets/04899006-ed76-4c1a-9ba4-bc28c07a7a25)
+
+Runs the `sum1ton.o` object file on the Spike RISC-V simulator with the Proxy Kernel and enables debugging mode
 
 ![image](https://github.com/user-attachments/assets/8428f4bd-f3d0-41b5-b5c1-2af564ffa88f)
 ![image](https://github.com/user-attachments/assets/4db3ccff-d382-41ff-8595-6ae795d193e2)
