@@ -66,10 +66,13 @@ Runs the `sum1ton.o` object file on the Spike RISC-V simulator with the Proxy Ke
 
 ![image](https://github.com/user-attachments/assets/04899006-ed76-4c1a-9ba4-bc28c07a7a25)
 
-We now bring the pc(program counter) to the start of the main function. We now check the contents of the register a2 before and after running the instructions. After executing the commands, we observe that the registors a0 aand a2 are loaded properly
+We now bring the pc(program counter) to the start of the main function. We now check the contents of the register a2 before and after running the instructions. After executing the commands, we observe that the registors a0 and a2 are loaded properly with appropriate values
 
 ![image](https://github.com/user-attachments/assets/8428f4bd-f3d0-41b5-b5c1-2af564ffa88f)
-![image](https://github.com/user-attachments/assets/4db3ccff-d382-41ff-8595-6ae795d193e2)
+
+We now bring the pc(program counter) to the location 100b8. The addition of -16(i.e 10 in hexadecimal) has been executed properly
+
+![image](https://github.com/user-attachments/assets/8411cfe4-8c8a-4ebd-bb9c-3340856ab9c1)
 
 
 
