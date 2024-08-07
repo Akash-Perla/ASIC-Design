@@ -62,6 +62,8 @@ For the "main" section, we can determine the number of instructions by subtracti
 
 The total number of instructions are 12.
 
+There are a total of 15 instructions using O1 and a total of 12 instructions using O1 fast. O1 provides a balanced optimization, resulting in more instructions, whereas O1 fast prioritizes faster compilation time, leading to fewer instructions.
+
 # Task-2
 
  Run the `sum1ton.o` in the spike simulator in order to debug the code.
