@@ -53,6 +53,30 @@ As soon as we press the Enter Key, a huge list opcodes are displayed on terminal
 
 For the "main" section, we can determine the number of instructions by subtracting the address of the first instruction in the next section from the address of the first instruction in the main section, then dividing the difference by 4 (since each instruction is 4 bytes)
 
+![image](https://github.com/user-attachments/assets/55fb8f17-1e71-4a37-a86f-c1b83a14d082)
+![image](https://github.com/user-attachments/assets/74a22175-e3fc-4897-93d2-0374163e75ee)
+
+The total number of instructions are 12
+
+Now, we perform debugging of the main section of the `sum1ton.c` and observe the values of register after every step. We compile the code using spike simulator
+
+![image](https://github.com/user-attachments/assets/377b644a-8fa3-47d7-860a-55999ba44559)
+
+Execute the sum1ton.o (i.e. object file) in the spike simulator in order to debug the code
+
+![image](https://github.com/user-attachments/assets/04899006-ed76-4c1a-9ba4-bc28c07a7a25)
+
+![image](https://github.com/user-attachments/assets/8428f4bd-f3d0-41b5-b5c1-2af564ffa88f)
+![image](https://github.com/user-attachments/assets/4db3ccff-d382-41ff-8595-6ae795d193e2)
+
+
+
+
+
+
+
+
+
 
 
 
