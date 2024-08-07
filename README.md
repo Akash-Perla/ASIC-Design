@@ -1,5 +1,11 @@
 # ASIC-Design
 
+# Contents
+
+- [Task 1](#task-1)
+- [Task 2](#task-2)
+
+
 # Task-1
 
 We first create a new file named `sum1ton.c` which prints the sum of all numbers upto 'n'.
