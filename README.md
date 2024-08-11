@@ -165,6 +165,23 @@ Each instruction in RISC-V is represented by a 32-bit binary pattern, divided in
 
 #### Functional Simulation Experiment
 
+| Assembly Code        | Hardcoded Hex Value | 32-bit RISC-V Instruction in Hex |
+  |----------------------|---------------------|---------------------------------|
+  | add r6, r1, r2       | 32'h02208300        | 0x00208333                      |
+  | sub r7, r1, r2       | 32'h02209380        | 0x402083b3                      |
+  | and r8, r1, r3       | 32'h0230a400        | 0x0030a333                      |
+  | or r9, r2, r5        | 32'h02513480        | 0x005123b3                      |
+  | xor r10, r1, r4      | 32'h0240c500        | 0x0040a333                      |
+  | slt r11, r2, r4      | 32'h02415580        | 0x004123b3                      |
+  | addi r12, r4, 5      | 32'h00520600        | 0x00520613                      |
+  | sw r3, r1, 2         | 32'h00209181        | 0x00212023                      |
+  | lw r13, r1, 2        | 32'h00208681        | 0x00208683                      |
+  | beq r0, r0, 15       | 32'h00f00002        | 0x00f00063                      |
+  | add r14, r2, r2      | 32'h00210700        | 0x002103b3                      |
+  | bne r0, r1, 20       | 32'h01409002        | 0x01409063                      |
+  | sll r15, r1, r2(2)   | 32'h00208783        | 0x002087b3                      |
+  | srl r16, r14, r2(2)  | 32'h00271803        | 0x002718b3                      |
+
 Install iverilog and gtkwave using the following commands:
 
 ```
@@ -191,6 +208,8 @@ iverilog -o iiitb_rv32i iiitb_rv32i.v iiitb_rv32i_tb.v
 ```
 gtkwave iiitb_rv32i.vcd
 ```
+
+![image](https://github.com/user-attachments/assets/67a6ca8b-1e1d-4773-86be-54d22f4819d7)
 
 
 
