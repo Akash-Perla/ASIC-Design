@@ -146,21 +146,7 @@ The table below provides the 32-bit binary encoding for a set of common RISC-V i
 | BEQ r0, r0, 15      | B        | 1100011    | 000        | N/A        | r0      | r0      | N/A    | 0000000000001111      | `0000000 00000 00000 000 00000 1100011` |
 
 
-| Operation | Standard RISC-V ISA         | Standard RISC-V ISA (Binary)       | Hardcoded ISA | Hardcoded ISA (Binary) |
-|-----------|------------------------------|------------------------------------|---------------|-------------------------|
-| ADD       | `ADD rd, rs1, rs2`           | `0000000 rs2 rs1 000 rd 0110011`   | 0x33          | `0000000 rs2 rs1 000 rd 0110011` |
-| SUB       | `SUB rd, rs1, rs2`           | `0100000 rs2 rs1 000 rd 0110011`   | 0x40000033     | `0100000 rs2 rs1 000 rd 0110011` |
-| AND       | `AND rd, rs1, rs2`           | `0000000 rs2 rs1 111 rd 0110011`   | 0x70000033     | `0000000 rs2 rs1 111 rd 0110011` |
-| OR        | `OR rd, rs1, rs2`            | `0000000 rs2 rs1 110 rd 0110011`   | 0x60000033     | `0000000 rs2 rs1 110 rd 0110011` |
-| XOR       | `XOR rd, rs1, rs2`           | `0000000 rs2 rs1 100 rd 0110011`   | 0x40000033     | `0000000 rs2 rs1 100 rd 0110011` |
-| SLT       | `SLT rd, rs1, rs2`           | `0000000 rs2 rs1 010 rd 0110011`   | 0x20000033     | `0000000 rs2 rs1 010 rd 0110011` |
-| ADDI      | `ADDI rd, rs1, imm`          | `imm[11:0] rs1 000 rd 0010011`     | 0x13          | `imm[11:0] rs1 000 rd 0010011`   |
-| SW        | `SW rs2, offset(rs1)`        | `imm[11:5] rs2 rs1 010 imm[4:0] 0100011` | 0x23          | `imm[11:5] rs2 rs1 010 imm[4:0] 0100011` |
-| SRL       | `SRL rd, rs1, shamt`         | `0000000 rs2 rs1 101 rd 0110011`   | 0x00000033     | `0000000 rs2 rs1 101 rd 0110011` |
-| BNE       | `BNE rs1, rs2, offset`       | `imm[12] imm[10:5] rs2 rs1 001 imm[4:1] imm[11] 1100011` | 0xF3          | `imm[12] imm[10:5] rs2 rs1 001 imm[4:1] imm[11] 1100011` |
-| BEQ       | `BEQ rs1, rs2, offset`       | `imm[12] imm[10:5] rs2 rs1 000 imm[4:1] imm[11] 1100011` | 0x0F          | `imm[12] imm[10:5] rs2 rs1 000 imm[4:1] imm[11] 1100011` |
-| LW        | `LW rd, offset(rs1)`         | `imm[11:0] rs1 010 rd 0000011`     | 0x03          | `imm[11:0] rs1 010 rd 0000011`   |
-| SLL       | `SLL rd, rs1, shamt`         | `0000000 rs2 rs1 001 rd 0110011`   | 0x00000033     | `0000000 rs2 rs1 001 rd 0110011` |
+ 
 
 
 
