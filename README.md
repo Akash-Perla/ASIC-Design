@@ -165,22 +165,20 @@ Each instruction in RISC-V is represented by a 32-bit binary pattern, divided in
 
 #### Functional Simulation Experiment
 
-| Assembly Code        | Hardcoded Hex Value | 32-bit RISC-V Instruction in Hex |
-  |----------------------|---------------------|---------------------------------|
-  | add r6, r1, r2       | `32'h02208300`        | `0x00208333`                      |
-  | sub r7, r1, r2       | `32'h02209380`        | `0x402083b3`                     |
-  | and r8, r1, r3       | `32'h0230a400`        | `0x0030a333`                      |
-  | or r9, r2, r5        | `32'h02513480`        | `0x005123b3`                      |
-  | xor r10, r1, r4      | `32'h0240c500`        | `0x0040a333`                      |
-  | slt r11, r2, r4      | `32'h02415580`        | `0x004123b3`                      |
-  | addi r12, r4, 5      | `32'h00520600`        | `0x00520613`                      |
-  | sw r3, r1, 2         | `32'h00209181`        | `0x00212023`                      |
-  | lw r13, r1, 2        | `32'h00208681`        | `0x00208683`                      |
-  | beq r0, r0, 15       | `32'h00f00002`        | `0x00f00063`                      |
-  | add r14, r2, r2      | `32'h00210700`        | `0x002103b3`                      |
-  | bne r0, r1, 20       | `32'h01409002`        | `0x01409063`                      |
-  | sll r15, r1, r2(2)   | `32'h00208783`        | `0x002087b3`                      |
-  | srl r16, r14, r2(2)  | `32'h00271803`        | `0x002718b3`                      |
+|  **Operation**  |  **Standard RISCV ISA**  |  **Hardcoded ISA**  |  
+|  :----:  |  :----:  |  :----:  |  
+|  ADD R6, R2, R1  |  32'h00110333  |  32'h02208300  |  
+|  SUB R7, R1, R2  |  32'h402083b3  |  32'h02209380  |  
+|  AND R8, R1, R3  |  32'h0030f433  |  32'h0230a400  |  
+|  OR R9, R2, R5  |  32'h005164b3  |  32'h02513480  |  
+|  XOR R10, R1, R4  |  32'h0040c533  |  32'h0240c500  |  
+|  SLT R1, R2, R4  |  32'h0045a0b3  |  32'h02415580  |  
+|  ADDI R12, R4, 5  |  32'h004120b3  |  32'h00520600  |  
+|  BEQ R0, R0, 15  |  32'h00000f63  |  32'h00f00002  |  
+|  SW R3, R1, 2  |  32'h0030a123  |  32'h00209181  |  
+|  LW R13, R1, 2  |  32'h0020a683  |  32'h00208681  |  
+|  SRL R16, R14, R2  |  32'h0030a123  |  32'h00271803  |
+|  SLL R15, R1, R2  |  32'h002097b3  |  32'h00208783  |   
 
 Install iverilog and gtkwave using the following commands:
 
