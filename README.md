@@ -87,19 +87,19 @@ The debugging process is successful.
 
 #### Given Instructions
 
-ADD r9, r10, r11
-SUB r11, r9, r10
-AND r10, r9, r11
-OR r8, r10, r5
-XOR r8, r9, r4
-SLT r00, r1, r4
-ADDI r02, r2, 5
-SW r2, r0, 4
-SRL r06, r01, r1
-BNE r0, r0, 20
-BEQ r0, r0, 15
-LW r03, r01, 2
-SLL r05, r01, r1
+ADD r9, r10, r11<br>
+SUB r11, r9, r10<br>
+AND r10, r9, r11<br>
+OR r8, r10, r5<br>
+XOR r8, r9, r4<br>
+SLT r00, r1, r4<br>
+ADDI r02, r2, 5<br>
+SW r2, r0, 4<br>
+SRL r06, r01, r1<br>
+BNE r0, r0, 20<br>
+BEQ r0, r0, 15<br>
+LW r03, r01, 2<br>
+SLL r05, r01, r1<br>
 
 
 #### Instruction Types
