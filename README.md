@@ -167,20 +167,20 @@ Each instruction in RISC-V is represented by a 32-bit binary pattern, divided in
 
 | Assembly Code        | Hardcoded Hex Value | 32-bit RISC-V Instruction in Hex |
   |----------------------|---------------------|---------------------------------|
-  | add r6, r1, r2       | 32'h02208300        | 0x00208333                      |
-  | sub r7, r1, r2       | 32'h02209380        | 0x402083b3                      |
-  | and r8, r1, r3       | 32'h0230a400        | 0x0030a333                      |
-  | or r9, r2, r5        | 32'h02513480        | 0x005123b3                      |
-  | xor r10, r1, r4      | 32'h0240c500        | 0x0040a333                      |
-  | slt r11, r2, r4      | 32'h02415580        | 0x004123b3                      |
-  | addi r12, r4, 5      | 32'h00520600        | 0x00520613                      |
-  | sw r3, r1, 2         | 32'h00209181        | 0x00212023                      |
-  | lw r13, r1, 2        | 32'h00208681        | 0x00208683                      |
-  | beq r0, r0, 15       | 32'h00f00002        | 0x00f00063                      |
-  | add r14, r2, r2      | 32'h00210700        | 0x002103b3                      |
-  | bne r0, r1, 20       | 32'h01409002        | 0x01409063                      |
-  | sll r15, r1, r2(2)   | 32'h00208783        | 0x002087b3                      |
-  | srl r16, r14, r2(2)  | 32'h00271803        | 0x002718b3                      |
+  | add r6, r1, r2       | `32'h02208300`        | `0x00208333`                      |
+  | sub r7, r1, r2       | `32'h02209380`        | `0x402083b3`                     |
+  | and r8, r1, r3       | `32'h0230a400`        | `0x0030a333`                      |
+  | or r9, r2, r5        | `32'h02513480`        | `0x005123b3`                      |
+  | xor r10, r1, r4      | `32'h0240c500`        | `0x0040a333`                      |
+  | slt r11, r2, r4      | `32'h02415580`        | `0x004123b3`                      |
+  | addi r12, r4, 5      | `32'h00520600`        | `0x00520613`                      |
+  | sw r3, r1, 2         | `32'h00209181`        | `0x00212023`                      |
+  | lw r13, r1, 2        | `32'h00208681`        | `0x00208683`                      |
+  | beq r0, r0, 15       | `32'h00f00002`        | `0x00f00063`                      |
+  | add r14, r2, r2      | `32'h00210700`        | `0x002103b3`                      |
+  | bne r0, r1, 20       | `32'h01409002`        | `0x01409063`                      |
+  | sll r15, r1, r2(2)   | `32'h00208783`        | `0x002087b3`                      |
+  | srl r16, r14, r2(2)  | `32'h00271803`        | `0x002718b3`                      |
 
 Install iverilog and gtkwave using the following commands:
 
@@ -210,6 +210,78 @@ gtkwave iiitb_rv32i.vcd
 ```
 
 ![image](https://github.com/user-attachments/assets/67a6ca8b-1e1d-4773-86be-54d22f4819d7)
+
+
+#### Output Waveforms
+
+![image](https://github.com/user-attachments/assets/bf582bb0-d860-4ddd-bc88-aa3b49faf6f3)
+
+
+`add r6, r1, r2`
+
+![image](https://github.com/user-attachments/assets/c02e2869-7cec-4d93-be52-9e174af1998c)
+
+`sub r7, r1, r2`
+
+![image](https://github.com/user-attachments/assets/595f28d5-92a2-49b8-849c-a6887f60024b)
+
+`and r8, r1, r3`
+
+![image](https://github.com/user-attachments/assets/fc1380a7-cd67-4506-83d4-23175cb2f07d)
+
+`or r9, r2, r5`
+
+![image](https://github.com/user-attachments/assets/36a6559d-adfd-468b-bbdc-2f7825278f78)
+
+`xor r10, r1, r4`
+
+![image](https://github.com/user-attachments/assets/d8c5c654-4e4d-479a-bd38-e63c21264109)
+
+
+`slt r11, r2, r4`
+![image](https://github.com/user-attachments/assets/27959424-668e-45aa-95cd-a156461826fa)
+
+`addi r12, r4, 5`
+
+![image](https://github.com/user-attachments/assets/6eac58ed-5781-4570-ba06-b57c895c56e6)
+
+
+`sw r3, r1, 2`
+
+![image](https://github.com/user-attachments/assets/5ba6e263-3e0c-41fa-b6e7-ba2b89844784)
+
+
+`lw r13, r1, 2`
+
+![image](https://github.com/user-attachments/assets/7331b284-accf-451b-bf83-5e9d3d4a61e9)
+
+
+`beq r0, r0, 15`
+![image](https://github.com/user-attachments/assets/d3647f62-a32c-4d8a-bf55-c8df1d1a20bc)
+
+
+
+`add r14, r2, r2`
+
+![image](https://github.com/user-attachments/assets/be01d386-8941-4749-8cfe-b3727b198029)
+
+
+`bne r0, r1, 20`
+
+![image](https://github.com/user-attachments/assets/c79334e9-866c-433f-9a69-5182732a9c8b)
+
+
+`sll r15, r1, r2(2)`
+
+![image](https://github.com/user-attachments/assets/509433f0-a79a-433f-a0bf-65e85182ad16)
+
+
+
+
+
+
+
+
 
 
 
