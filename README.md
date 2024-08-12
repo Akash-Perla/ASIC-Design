@@ -224,7 +224,8 @@ Output waveform for Hardcoded Instructions
 
 - Waveform for above command
 
-![image](https://github.com/user-attachments/assets/6357d0d6-de43-4452-8875-974f0d7e0b67)
+![image](https://github.com/user-attachments/assets/2becae8a-c60e-430b-aa3a-e003c1543cab)
+
 
 - Hardcoded Instruction: `sub r7, r1, r2`
 
@@ -232,7 +233,8 @@ Output waveform for Hardcoded Instructions
 
 - Waveform for above command
 
-  ![image](https://github.com/user-attachments/assets/89408c83-3a7d-40b5-a7ba-17c4c2c0097c)
+ ![image](https://github.com/user-attachments/assets/26519470-874e-4716-9378-72ecdbeb3b7b)
+
 
 
 - Hardcoded Instruction: `and r8, r1, r3`
@@ -241,7 +243,8 @@ Output waveform for Hardcoded Instructions
 
 - Waveform for above command
 
-  ![image](https://github.com/user-attachments/assets/d8d85c62-6c45-47c7-9016-be259b31b464)
+![image](https://github.com/user-attachments/assets/8ec67817-a5f2-4668-a448-2ecca2bd4d88)
+
 
 
 - Hardcoded Instruction: `or r9, r2, r5`
@@ -250,7 +253,7 @@ Output waveform for Hardcoded Instructions
 
 - Waveform for above command
 
-- ![image](https://github.com/user-attachments/assets/eba53fe1-d3a3-4ca3-8cba-2354ed103ef3)
+![image](https://github.com/user-attachments/assets/45fe8941-ae28-45b6-a536-51065b7df66e)
 
 
 - Hardcoded Instruction: `xor r10, r1, r4`
@@ -258,7 +261,8 @@ Output waveform for Hardcoded Instructions
 ![image](https://github.com/user-attachments/assets/d8c5c654-4e4d-479a-bd38-e63c21264109)
 
 - Waveform for above command
-![image](https://github.com/user-attachments/assets/a1b659d2-530f-46f7-9ce5-2bbb8933e310)
+
+![image](https://github.com/user-attachments/assets/afbcd58a-848a-4115-b979-0bfa43a6f95b)
 
 
 - Hardcoded Instruction: `slt r11, r2, r4`
@@ -266,14 +270,15 @@ Output waveform for Hardcoded Instructions
 
 - Waveform for above command
 
-  ![image](https://github.com/user-attachments/assets/512a465e-f6c8-4c53-ac93-eddc0e579761)
+ ![image](https://github.com/user-attachments/assets/43951a67-e816-437e-b32b-1fb46dd9bb27)
 
-  
+ 
 - Hardcoded Instruction: `addi r12, r4, 5`
 
 ![image](https://github.com/user-attachments/assets/6eac58ed-5781-4570-ba06-b57c895c56e6)
 - Waveform for above command
-  ![image](https://github.com/user-attachments/assets/86ad1d71-59f3-41ec-bcb4-21bf9cb7bd13)
+![image](https://github.com/user-attachments/assets/9388869a-4130-4797-8290-c34921850294)
+
 
 
 - Hardcoded Instruction: `sw r3, r1, 2`
@@ -281,28 +286,32 @@ Output waveform for Hardcoded Instructions
 ![image](https://github.com/user-attachments/assets/5ba6e263-3e0c-41fa-b6e7-ba2b89844784)
 - Waveform for above command
 
-![image](https://github.com/user-attachments/assets/0305c1fe-37a9-46f8-9408-de4177816616)
+![image](https://github.com/user-attachments/assets/895f1cc6-9e0a-48f8-a685-9d58d7ccc377)
 
 
 - Hardcoded Instruction: `lw r13, r1, 2`
 
 ![image](https://github.com/user-attachments/assets/7331b284-accf-451b-bf83-5e9d3d4a61e9)
 - Waveform for above command
+![image](https://github.com/user-attachments/assets/c11326ad-c03a-410c-8358-cfd49ee2d937)
 
-  ![image](https://github.com/user-attachments/assets/14b155af-7dba-4e48-94be-7d6234d55b7d)
+ 
 
 
 - Hardcoded Instruction: `beq r0, r0, 15`
 ![image](https://github.com/user-attachments/assets/d3647f62-a32c-4d8a-bf55-c8df1d1a20bc)
 - Waveform for above command
-![image](https://github.com/user-attachments/assets/e0268400-84cc-4f95-a78b-392a028288df)
+  ![image](https://github.com/user-attachments/assets/ac0e5326-903e-4787-9b83-6019cebc8fd5)
+
 
 
 - Hardcoded Instruction: `add r14, r2, r2`
 
 ![image](https://github.com/user-attachments/assets/be01d386-8941-4749-8cfe-b3727b198029)
 - Waveform for above command
-  ![image](https://github.com/user-attachments/assets/97662cd6-2dc8-41b0-b12f-f6380e862869)
+  ![image](https://github.com/user-attachments/assets/a932a5ba-0add-4369-8194-f402da7c97b2)
+
+
 
 
 - Hardcoded Instruction: `bne r0, r1, 20`
@@ -310,15 +319,17 @@ Output waveform for Hardcoded Instructions
 ![image](https://github.com/user-attachments/assets/c79334e9-866c-433f-9a69-5182732a9c8b)
 - Waveform for above command
 
-  ![image](https://github.com/user-attachments/assets/a3932106-b0d2-4c04-b319-085b97ea8205)
+ ![image](https://github.com/user-attachments/assets/09a44ba8-10d1-4ee4-8abb-9bea6a1a3444)
+
 
 
 - Hardcoded Instruction: `sll r15, r1, r2(2)`
 
 ![image](https://github.com/user-attachments/assets/509433f0-a79a-433f-a0bf-65e85182ad16)
 - Waveform for above command
+![image](https://github.com/user-attachments/assets/2dcaa7b3-156a-4837-a37f-afbbacc2547e)
 
-  ![image](https://github.com/user-attachments/assets/a29f1a1f-12a6-4dea-8dbe-9b73cdf1d97b)
+
 
 We can observe that there is a waveform difference
 
