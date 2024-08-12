@@ -210,69 +210,117 @@ gtkwave iiitb_rv32i.vcd
 ![image](https://github.com/user-attachments/assets/67a6ca8b-1e1d-4773-86be-54d22f4819d7)
 
 
-#### Output Waveforms
+#### Output Waveforms for the Hardcoded Code
 
+Hardcoded instructions
+![image](https://github.com/user-attachments/assets/6cac004f-5aa7-46e3-82a3-a88d2dce3059)
+
+Output waveform for Hardcoded Instructions
 ![image](https://github.com/user-attachments/assets/bf582bb0-d860-4ddd-bc88-aa3b49faf6f3)
 
-
-`add r6, r1, r2`
+- Waveform for Hardcoded Instruction: `add r6, r1, r2`
 
 ![image](https://github.com/user-attachments/assets/c02e2869-7cec-4d93-be52-9e174af1998c)
 
-`sub r7, r1, r2`
+- Waveform for above command
+
+![image](https://github.com/user-attachments/assets/6357d0d6-de43-4452-8875-974f0d7e0b67)
+
+- Hardcoded Instruction: `sub r7, r1, r2`
 
 ![image](https://github.com/user-attachments/assets/595f28d5-92a2-49b8-849c-a6887f60024b)
 
-`and r8, r1, r3`
+- Waveform for above command
+
+  ![image](https://github.com/user-attachments/assets/89408c83-3a7d-40b5-a7ba-17c4c2c0097c)
+
+
+- Hardcoded Instruction: `and r8, r1, r3`
 
 ![image](https://github.com/user-attachments/assets/fc1380a7-cd67-4506-83d4-23175cb2f07d)
 
-`or r9, r2, r5`
+- Waveform for above command
+
+  ![image](https://github.com/user-attachments/assets/d8d85c62-6c45-47c7-9016-be259b31b464)
+
+
+- Hardcoded Instruction: `or r9, r2, r5`
 
 ![image](https://github.com/user-attachments/assets/36a6559d-adfd-468b-bbdc-2f7825278f78)
 
-`xor r10, r1, r4`
+- Waveform for above command
+
+- ![image](https://github.com/user-attachments/assets/eba53fe1-d3a3-4ca3-8cba-2354ed103ef3)
+
+
+- Hardcoded Instruction: `xor r10, r1, r4`
 
 ![image](https://github.com/user-attachments/assets/d8c5c654-4e4d-479a-bd38-e63c21264109)
 
+- Waveform for above command
+![image](https://github.com/user-attachments/assets/a1b659d2-530f-46f7-9ce5-2bbb8933e310)
 
-`slt r11, r2, r4`
+
+- Hardcoded Instruction: `slt r11, r2, r4`
 ![image](https://github.com/user-attachments/assets/27959424-668e-45aa-95cd-a156461826fa)
 
-`addi r12, r4, 5`
+- Waveform for above command
+
+  ![image](https://github.com/user-attachments/assets/512a465e-f6c8-4c53-ac93-eddc0e579761)
+
+  
+- Hardcoded Instruction: `addi r12, r4, 5`
 
 ![image](https://github.com/user-attachments/assets/6eac58ed-5781-4570-ba06-b57c895c56e6)
+- Waveform for above command
+  ![image](https://github.com/user-attachments/assets/86ad1d71-59f3-41ec-bcb4-21bf9cb7bd13)
 
 
-`sw r3, r1, 2`
+- Hardcoded Instruction: `sw r3, r1, 2`
 
 ![image](https://github.com/user-attachments/assets/5ba6e263-3e0c-41fa-b6e7-ba2b89844784)
+- Waveform for above command
+
+![image](https://github.com/user-attachments/assets/0305c1fe-37a9-46f8-9408-de4177816616)
 
 
-`lw r13, r1, 2`
+- Hardcoded Instruction: `lw r13, r1, 2`
 
 ![image](https://github.com/user-attachments/assets/7331b284-accf-451b-bf83-5e9d3d4a61e9)
+- Waveform for above command
+
+  ![image](https://github.com/user-attachments/assets/14b155af-7dba-4e48-94be-7d6234d55b7d)
 
 
-`beq r0, r0, 15`
+- Hardcoded Instruction: `beq r0, r0, 15`
 ![image](https://github.com/user-attachments/assets/d3647f62-a32c-4d8a-bf55-c8df1d1a20bc)
+- Waveform for above command
+![image](https://github.com/user-attachments/assets/e0268400-84cc-4f95-a78b-392a028288df)
 
 
-
-`add r14, r2, r2`
+- Hardcoded Instruction: `add r14, r2, r2`
 
 ![image](https://github.com/user-attachments/assets/be01d386-8941-4749-8cfe-b3727b198029)
+- Waveform for above command
+  ![image](https://github.com/user-attachments/assets/97662cd6-2dc8-41b0-b12f-f6380e862869)
 
 
-`bne r0, r1, 20`
+- Hardcoded Instruction: `bne r0, r1, 20`
 
 ![image](https://github.com/user-attachments/assets/c79334e9-866c-433f-9a69-5182732a9c8b)
+- Waveform for above command
+
+  ![image](https://github.com/user-attachments/assets/a3932106-b0d2-4c04-b319-085b97ea8205)
 
 
-`sll r15, r1, r2(2)`
+- Hardcoded Instruction: `sll r15, r1, r2(2)`
 
 ![image](https://github.com/user-attachments/assets/509433f0-a79a-433f-a0bf-65e85182ad16)
+- Waveform for above command
 
+  ![image](https://github.com/user-attachments/assets/a29f1a1f-12a6-4dea-8dbe-9b73cdf1d97b)
+
+We can observe that there is a waveform difference
 
 
 
