@@ -2,11 +2,11 @@
 
 ## Contents
 
-- [Task 1](#task-1)
+- [Task 1: A C program which calculates the sum of all numbers upto 'n'](#task-1)
 - [Task 2](#task-2)
 - [Task 3](#task-3)
 
-## Task-1
+## Task-1: A C program which calculates the sum of all numbers upto 'n'
 
 - We first create a new file named `sum1ton.c` which prints the sum of all numbers up to 'n'.
 
