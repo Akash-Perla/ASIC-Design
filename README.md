@@ -3,8 +3,9 @@
 ## Contents
 
 - [Task 1: A C program which calculates the sum of all numbers upto 'n'](#task-1)
-- [Task 2](#task-2)
-- [Task 3](#task-3)
+- [Task 2: Spike simulation](#task-2)
+- [Task 3: Funtional simulation experiment](#task-3)
+- [Task 4: A C program which does a binary search on a sorted array and its Spike simulation](#task-4)
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
 
@@ -63,7 +64,7 @@ The total number of instructions is 12.
 
 - There are a total of 15 instructions using O1 and a total of 12 instructions using Ofast. O1 provides a balanced optimization, resulting in more instructions, whereas Ofast prioritizes faster compilation time, leading to fewer instructions.
 
-## Task-2
+## Task-2: Spike simulation
 
 - Run the `sum1ton.o` in the Spike simulator in order to debug the code.
 
@@ -83,7 +84,7 @@ The total number of instructions is 12.
 
 The debugging process is successful.
 
-## Task-3
+## Task-3: Funtional simulation experiment
 
 #### Given Instructions
 
@@ -332,6 +333,41 @@ Output waveform for Hardcoded Instructions
 
 
 We can observe that there is a waveform difference
+
+## Task 4: A C program which does a binary search on a sorted array and its Spike simulation
+
+- We first create a new file named `binary_search.c` which does a binary search on a sorted array. The following is the code for the same:
+![image](https://github.com/user-attachments/assets/18736546-3840-426f-bd2d-da6ef792c76c)
+
+- The code is compiled using the command:
+  ```
+  gcc binary_search.c
+  ./a.out
+  ```
+
+- The output is shown below:
+
+![image](https://github.com/user-attachments/assets/c624c1f8-cf61-4e62-8270-0c6da4efd88f)
+
+- Now, we compile the C program using the RISC-V compiler with O1 optimization
+
+
+![image](https://github.com/user-attachments/assets/e3cbfa94-e2ee-4e10-83bb-5ef99359078e)
+
+
+- Now, we create the object file `binary_search.o`
+
+
+![image](https://github.com/user-attachments/assets/22b7038b-fd21-49ca-9570-d09b3eebe132)
+
+- As soon as we press the Enter key, a huge list of opcodes is displayed on the terminal. But our focus is on the main section of the program. Type :/main to navigate to that portion.
+
+![image](https://github.com/user-attachments/assets/1894f856-8169-4ed0-aa2c-10fc6530dfb1)
+
+
+
+
+
 
 
 
