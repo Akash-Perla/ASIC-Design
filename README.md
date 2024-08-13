@@ -2,10 +2,10 @@
 
 ## Contents
 
-- [Task 1: A C program which calculates the sum of all numbers upto 'n'](#task-1)
-- [Task 2: Spike simulation](#task-2)
-- [Task 3: Funtional simulation experiment](#task-3)
-- [Task 4: A C program which does a binary search on a sorted array and its Spike simulation](#task-4)
+- [Task 1: A C program which calculates the sum of all numbers upto 'n'](#task-1-a-c-program-which-calculates-the-sum-of-all-numbers-up-to-n)
+- [Task 2: Spike simulation](#task-2-spike-simulation)
+- [Task 3: Funtional simulation experiment](#task-3-functional-simulation-experiment)
+- [Task 4: A C program which does a binary search on a sorted array and its Spike simulation](#task-4-a-c-program-which-does-a-binary-search-on-a-sorted-array-and-its-spike-simulation)
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
 
@@ -334,7 +334,7 @@ Output waveform for Hardcoded Instructions
 
 We can observe that there is a waveform difference
 
-## Task 4: A C program which does a binary search on a sorted array and its Spike simulation
+## Task-4: A C program which does a binary search on a sorted array and its Spike simulation
 
 - We first create a new file named `binary_search.c` which does a binary search on a sorted array. The following is the code for the same:
 ![image](https://github.com/user-attachments/assets/18736546-3840-426f-bd2d-da6ef792c76c)
@@ -363,6 +363,41 @@ We can observe that there is a waveform difference
 - As soon as we press the Enter key, a huge list of opcodes is displayed on the terminal. But our focus is on the main section of the program. Type :/main to navigate to that portion.
 
 ![image](https://github.com/user-attachments/assets/1894f856-8169-4ed0-aa2c-10fc6530dfb1)
+
+- The number of instructions are 1C(in hex) i.e 28(in decimal)
+  
+![image](https://github.com/user-attachments/assets/0fa0021c-e3b6-4b45-b14c-83281b4564ae)
+
+- Next, we compile the C program using the RISC-V compiler with Ofast optimization.
+
+![image](https://github.com/user-attachments/assets/55751db5-f47d-4918-b9df-e0cd00413101)
+
+
+- Now, we create the object file `binary_search.o`
+
+![image](https://github.com/user-attachments/assets/63042529-3e96-4360-b93d-84a6d1f970e3)
+
+  
+-  As soon as we press the Enter key, a huge list of opcodes is displayed on the terminal. But our focus is on the main section of the program. Type :/main to navigate to that portion.
+
+![image](https://github.com/user-attachments/assets/cf6cd01c-088e-4051-8b77-055116979bd9)
+
+- The number of instructions are 46
+
+![image](https://github.com/user-attachments/assets/5d5b4e72-1696-49b6-9575-98127d83367a)
+
+#### Spike simulation
+
+- Run the `binary_search.o` in the Spike simulator in order to debug the code.
+
+ ![image](https://github.com/user-attachments/assets/d5ff2224-3e15-4818-a71c-a62ef1cfd693)
+  
+- We now bring the PC (program counter) to the start of the main function using the command 'until pc 0 100b0'. We then check the contents of register 'a5' before and after running the instructions. After executing the commands, we observe that the registers 'a5' is properly loaded with appropriate values.
+
+![image](https://github.com/user-attachments/assets/d3983438-9fa7-496d-94ed-9326a4784581)
+
+- Debugging process is successful
+
 
 
 
