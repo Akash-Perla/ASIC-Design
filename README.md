@@ -402,6 +402,91 @@ We can observe that there is a waveform difference
 
 ## Task-5: A 5 stage RISCV processor
 
+#### Makerchip Tutorial (Lab: Combinational Logic)
+
+- Inverter
+
+  
+Truth Table of an Inverter
+
+![image](https://github.com/user-attachments/assets/d0e7ea18-a5e1-4cd1-aa9d-a64f437d1ad0)
+
+Inverter design using Makerchip
+ ![image](https://github.com/user-attachments/assets/e8f39f56-3636-4454-aefe-d0a296baad36)
+
+- 2 AND(&&)
+  
+Truth Table of an AND
+ 
+![image](https://github.com/user-attachments/assets/48b3dbc6-6adb-444b-8c66-271eefa0a30b)
+
+
+AND design using Makerchip
+![image](https://github.com/user-attachments/assets/8b636662-cbc7-4675-a14e-c6c55292783c)
+
+ 
+  
+- 2 OR(||)
+
+Truth Table of an OR
+ 
+![image](https://github.com/user-attachments/assets/2cf25436-c1b4-4ef7-89be-ede234c6852e)
+
+
+OR design using Makerchip
+![image](https://github.com/user-attachments/assets/d3c5635b-9eed-4ddf-a53a-974b69d517a3)
+
+  
+  
+- 2 XOR(^)
+
+Truth Table of an Xor
+
+![image](https://github.com/user-attachments/assets/d0e7ea18-a5e1-4cd1-aa9d-a64f437d1ad0)
+
+Xor design using Makerchip
+
+![image](https://github.com/user-attachments/assets/bb02fff5-bf47-444b-85b5-91df695d0e5f)
+
+- Vectors
+
+![image](https://github.com/user-attachments/assets/1649f0b9-8859-419c-aa8a-43811053ddaf)
+
+- 2:1 Mux
+
+![image](https://github.com/user-attachments/assets/1f00099f-dd45-402f-8efc-b7886d2a5799)
+
+- 2:1 Mux using vectors
+
+![image](https://github.com/user-attachments/assets/3c97f795-b415-4c36-ab51-ec73aa95592b)
+
+
+- Combinational Calculator
+
+![image](https://github.com/user-attachments/assets/fb1dd3da-6776-47a1-9520-69d858eb8ff5)
+
+#### Makerchip Tutorial (Lab: Sequential Logic)
+
+- Fibonacci 
+
+-
+#### Makerchip Tutorial (Lab: Pipelined Logic)
+
+- Implement Pipelined Design
+
+Diagram
+
+![image](https://github.com/user-attachments/assets/4d13588f-afb4-4590-add5-ecac2d84fd24)
+
+Using Makerchip
+
+![image](https://github.com/user-attachments/assets/caebc3b9-8a7a-42f5-92ab-b76bdc969e8b)
+
+-
+
+
+ 
+
 
 
 
