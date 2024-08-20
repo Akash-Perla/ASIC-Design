@@ -2,11 +2,12 @@
 
 ## Contents
 
-- [Task 1: A C program which calculates the sum of all numbers upto 'n'](#task-1-a-c-program-which-calculates-the-sum-of-all-numbers-up-to-n)
+- [Task 1: A C program which calculates the sum of all numbers up to 'n'](#task-1-a-c-program-which-calculates-the-sum-of-all-numbers-up-to-n)
 - [Task 2: Spike simulation](#task-2-spike-simulation)
-- [Task 3: Funtional simulation experiment](#task-3-functional-simulation-experiment)
+- [Task 3: Functional simulation experiment](#task-3-functional-simulation-experiment)
 - [Task 4: A C program which does a binary search on a sorted array and its Spike simulation](#task-4-a-c-program-which-does-a-binary-search-on-a-sorted-array-and-its-spike-simulation)
-- [Task 5: A 5-stage RISC-V processor](#task-4-a-5-stage-RISC-V-processor)
+- [Task 5: A 5 stage RISCV processor](#task-5-a-5-stage-riscv-processor)
+
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
 
@@ -399,7 +400,7 @@ We can observe that there is a waveform difference
 
 - Debugging process is successful
 
-## Task-5: A 5-stage RISC-V processor
+## Task-5: A 5 stage RISCV processor
 
 
 
