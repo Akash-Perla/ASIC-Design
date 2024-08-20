@@ -467,9 +467,19 @@ Xor design using Makerchip
 
 #### Makerchip Tutorial (Lab: Sequential Logic)
 
-- Fibonacci 
+- Fibonacci
 
--
+![image](https://github.com/user-attachments/assets/ebd8bbee-590f-43a0-9f62-aa8a7c07a900)
+
+- Free running counter
+
+![image](https://github.com/user-attachments/assets/badf4ccf-5d1c-4c5e-8993-3d1fefea488d)
+  
+- Sequential Calculator
+
+![image](https://github.com/user-attachments/assets/5da9a4b7-ad89-47da-912d-0e399361134b)
+
+  
 #### Makerchip Tutorial (Lab: Pipelined Logic)
 
 - Implement Pipelined Design
@@ -482,8 +492,15 @@ Using Makerchip
 
 ![image](https://github.com/user-attachments/assets/caebc3b9-8a7a-42f5-92ab-b76bdc969e8b)
 
--
+- 2 cycle calculator
 
+Diagram
+
+![image](https://github.com/user-attachments/assets/ac702c71-3abf-4c73-bdb4-a9dbe71b1b2d)
+
+Using Makerchip
+
+![image](https://github.com/user-attachments/assets/671f8a6b-4598-4c97-b64f-ce4767b77137)
 
  
 
