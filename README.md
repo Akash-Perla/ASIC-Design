@@ -777,9 +777,10 @@ To test the code using the testbech we include the line `*passed = |cpu/xreg[14]
 
 ![image](https://github.com/user-attachments/assets/e641b1bc-e2f4-4669-a54d-d70469a84860)
 
+![image](https://github.com/user-attachments/assets/c76f9237-ff2e-4f4e-8265-eae0bff09918)
+
 ![image](https://github.com/user-attachments/assets/6d54738d-1e10-4f4d-9e72-bb38f028b51a)
 
-![image](https://github.com/user-attachments/assets/c76f9237-ff2e-4f4e-8265-eae0bff09918)
 
 The sum of numbers from 1 to 9 is 45(i.e 2D in hex) which is verified in the waveform for `|cpu/xreg[14]` in the above figure
 
