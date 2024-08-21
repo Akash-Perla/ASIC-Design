@@ -781,6 +781,8 @@ To test the code using the testbech we include the line `*passed = |cpu/xreg[14]
 
 ![image](https://github.com/user-attachments/assets/c76f9237-ff2e-4f4e-8265-eae0bff09918)
 
+The sum of numbers from 1 to 9 is 45(i.e 2D in hex) which is verified in the waveform for `|cpu/xreg[14]` in the above figure
+
 
 
 #### Day-5 Complete Pipelined RISC-V CPU Micro-architecture
@@ -1094,6 +1096,8 @@ Code:
 ![image](https://github.com/user-attachments/assets/e97d390e-c275-440a-800e-b9a5602b0bf9)
 
 ![image](https://github.com/user-attachments/assets/42700a78-af27-4392-8ed9-dce199cc43bc)
+
+The sum of numbers from 1 to 9 is 45(i.e 2D in hex) which is verified in the waveform for `|cpu/xreg[14]` in the above figure
 
 
 
