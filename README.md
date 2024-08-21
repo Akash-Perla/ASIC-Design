@@ -602,7 +602,27 @@ The basic components are:
 
 ![image](https://github.com/user-attachments/assets/ae1dc245-0e37-4571-9ca9-f702b240bf4b)
 
- 
+To test the code using the testbech we include the line `*passed = |cpu/xreg[10]>>5$value == (1+2+3+4+5+6+7+8+9) ;` in @1 stage
+
+![image](https://github.com/user-attachments/assets/e557fea9-c588-429f-b272-f2e5ea17e887)
+
+#### Day-5 Complete Pipelined RISC-V CPU Micro-architecture
+
+
+Pipelining can introduce hazards that disrupt instruction execution. A key hazard is the "branch instruction hazard" or "branch penalty."
+
+###### Types of Hazards:
+
+1. **Structural Hazard**: Occurs when multiple instructions compete for the same resource, causing pipeline stalls.
+
+2. **Data Hazard**: Arises when an instruction depends on the result of a previous instruction that hasn't completed yet, potentially leading to incorrect results.
+
+3. **Control Hazard (Branch Hazard)**: Happens due to uncertainty in whether a branch will be taken. If a branch prediction is wrong, the pipeline must be flushed, leading to a performance penalty.
+
+- Final 4 stage Pipeline Logic
+
+
+![image](https://github.com/user-attachments/assets/c1f534f7-ec55-48fd-9b64-60c1698d12c9)
 
 
 
