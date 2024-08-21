@@ -402,7 +402,7 @@ We can observe that there is a waveform difference
 
 ## Task-5: A 5 stage RISCV processor
 
-#### Makerchip Tutorial (Lab: Combinational Logic)
+#### Day-3 Makerchip Tutorial (Lab: Combinational Logic)
 
 - Inverter
 
@@ -465,7 +465,7 @@ Xor design using Makerchip
 
 ![image](https://github.com/user-attachments/assets/fb1dd3da-6776-47a1-9520-69d858eb8ff5)
 
-#### Makerchip Tutorial (Lab: Sequential Logic)
+#### Day-3 Makerchip Tutorial (Lab: Sequential Logic)
 
 - Fibonacci
 
@@ -480,9 +480,9 @@ Xor design using Makerchip
 ![image](https://github.com/user-attachments/assets/5da9a4b7-ad89-47da-912d-0e399361134b)
 
   
-#### Makerchip Tutorial (Lab: Pipelined Logic)
+#### Day-3 Makerchip Tutorial (Lab: Pipelined Logic)  
 
-- Implement Pipelined Design
+- Error Detection Demo
 
 Diagram
 
@@ -491,6 +491,17 @@ Diagram
 Using Makerchip
 
 ![image](https://github.com/user-attachments/assets/caebc3b9-8a7a-42f5-92ab-b76bdc969e8b)
+
+- Counter and Calculator
+
+Diagram
+
+![image](https://github.com/user-attachments/assets/491e8f5a-17b8-49c2-969b-9f9dd90c6509)
+
+Using Makerchip
+
+![image](https://github.com/user-attachments/assets/bd8cd0dc-366a-44d7-b0a1-2c6a50f1ecab)
+
 
 - 2 cycle calculator
 
@@ -501,6 +512,99 @@ Diagram
 Using Makerchip
 
 ![image](https://github.com/user-attachments/assets/671f8a6b-4598-4c97-b64f-ce4767b77137)
+
+#### Day-3 Makerchip Tutorial (Lab: Validity)
+
+- Distance Calculator
+
+Diagram
+
+![image](https://github.com/user-attachments/assets/aa759b95-2fda-49ce-ace0-3ce3f66f36a7)
+
+
+Using Makerchip
+
+![image](https://github.com/user-attachments/assets/20a31855-c589-40cd-8c20-53ba9496c067)
+
+
+- 2 Cycle Calculator
+  
+Diagram
+
+![image](https://github.com/user-attachments/assets/32423d45-3d4a-40bb-8f69-f154854726e9)
+
+
+Using Makerchip
+
+![image](https://github.com/user-attachments/assets/3a88146d-c46f-4b42-8907-e5ac3ff8ce1d)
+
+- Calculator with Single Value Memory
+
+Diagram
+
+![image](https://github.com/user-attachments/assets/ecfb657f-e228-44be-a9d1-c3c6d2c0c9fd)
+
+
+Using Makerchip
+
+![image](https://github.com/user-attachments/assets/7bf248bb-f7b9-4ac0-ae2e-10378a750baa)
+
+#### Day-4 Basic RISC-V CPU core Micro-architecture
+
+Diagram
+
+![image](https://github.com/user-attachments/assets/cb869897-0f89-46db-9ba7-26680e40a8e5)
+
+The basic components are:
+
+1. **Program Counter (PC)**: A CPU register that tracks the memory address of the next instruction to fetch and execute.
+
+2. **Instruction Decoder**: A circuit that interprets and decodes machine instructions, generating control signals for CPU operations.
+
+3. **Instruction Memory**: A storage component holding the program's machine instructions, fetched using the program counter.
+
+4. **Data Memory**: A storage component used to store and manipulate data during program execution; it supports both read and write operations.
+
+5. **ALU (Arithmetic Logic Unit)**: A digital circuit that performs arithmetic and logical operations, such as addition, subtraction, and bitwise operations.
+
+6. **Read Register File**: A set of registers used to store data during instruction execution, providing operands for ALU operations.
+
+7. **Write Register File**: Stores the results of operations back into registers, ensuring updated data is available for subsequent instructions.
+
+- Program Counter
+
+![image](https://github.com/user-attachments/assets/ea1162a7-1424-4c93-808e-7c3c49f0627f)
+
+- Instruction Fetch
+
+![image](https://github.com/user-attachments/assets/790390c2-5c52-44aa-9573-5a68f1f1538a)
+
+
+- Instruction Decode
+
+![image](https://github.com/user-attachments/assets/19c080f3-6100-4125-8609-9f732ac509f2)
+
+- Register File Read
+
+![image](https://github.com/user-attachments/assets/92533982-4df7-4175-85f9-75a626b13bcf)
+
+
+- ALU
+
+![image](https://github.com/user-attachments/assets/b522b87e-1f62-4a88-b327-0dee59f51c23)
+
+- Register File Write
+
+![image](https://github.com/user-attachments/assets/84dc9eb0-214a-4061-ae1e-eac5bd74be5d)
+
+
+- Branch Instructions
+
+![image](https://github.com/user-attachments/assets/ae1dc245-0e37-4571-9ca9-f702b240bf4b)
+
+ 
+
+
 
  
 
