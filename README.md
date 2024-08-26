@@ -7,6 +7,7 @@
 - [Task 3: Functional simulation experiment](#task-3-functional-simulation-experiment)
 - [Task 4: A C program which does a binary search on a sorted array and its Spike simulation](#task-4-a-c-program-which-does-a-binary-search-on-a-sorted-array-and-its-spike-simulation)
 - [Task 5: A 5 stage RISCV processor](#task-5-a-5-stage-riscv-processor)
+- [Task 6: TLV to Verilog](#task-6-tlv-to-verilog)
 
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
@@ -1099,6 +1100,19 @@ Code:
 ![image](https://github.com/user-attachments/assets/42700a78-af27-4392-8ed9-dce199cc43bc)
 
 The sum of numbers from 1 to 9 is 45(i.e 2D in hex) which is verified in the waveform for `|cpu/xreg[14]` in the above figure
+
+## Task-6: TLV to Verilog
+
+We will first set-up a development environment for working with simulation and synthesis tools using the below commands:
+
+```
+sudo apt install make python python3 python3-pip git iverilog gtkwave
+cd ~
+sudo apt-get install python3-venv
+python3 -m venv .venv
+source ~/.venv/bin/activate
+pip3 install pyyaml click sandpiper-saas
+```
 
 
 
