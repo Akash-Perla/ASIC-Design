@@ -1114,6 +1114,79 @@ source ~/.venv/bin/activate
 pip3 install pyyaml click sandpiper-saas
 ```
 
+![image](https://github.com/user-attachments/assets/46cf40a8-1a09-4ab9-9e0c-2fcfd04ba9c4)
+
+```
+sudo apt install make python python3 python3-pip git iverilog gtkwave docker.io
+sudo chmod 666 /var/run/docker.sock
+cd ~
+pip3 install pyyaml click sandpiper-saas
+```
+
+![image](https://github.com/user-attachments/assets/7e1a581a-22f6-42f2-9619-29b0930e7d0f)
+
+```
+cd ~
+git clone https://github.com/manili/VSDBabySoC.git
+cd /home/vsduser/VSDBabySoC
+make pre_synth_sim
+```
+
+![image](https://github.com/user-attachments/assets/7100db7f-502b-4130-88d4-39fad175fa0a)
+
+Now, we replace the rvmyth.tlv file in the VSDBabySoC/src/module folder with our RISC-V design from makerchip .tlv file which is to be converted into verilog and also we change the testbench according to our makerchip code.
+
+Inorder to get verilog code of our TLV code ie, to translate .tlv definition of RISC-V into .v definition use the following code.
+
+```
+sandpiper-saas -i ./src/module/rvmyth.tlv -o rvmyth.v --bestsv --noline -p verilog --outdir ./src/module/
+```
+
+![image](https://github.com/user-attachments/assets/2c2dd542-3723-46d2-b9da-172d0663c892)
+
+Now we compile and simulate RISC-V design
+
+```
+iverilog -o output/pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module
+```
+
+Result of the simulation (i.e. pre_synth_sim.vcd) is stored in the output/pre_synth_sim directory
+
+```
+cd output
+./pre_synth_sim.out
+```
+![image](https://github.com/user-attachments/assets/fb83007f-21be-46b4-8131-2234b0d9eead)
+
+Now,
+
+```
+gtkwave pre_synth_sim.vcd
+```
+
+#### Pre-synthesis Simulation results: Signals to plot are the following:
+
+- clk_aka: Clock input to the RISC-V core.
+- reset: Reset signal to the RISC-V core.
+- OUT[9:0]: 10-bit output [9:0] OUT port of the RISC-V core. This port comes from the RISC-V register #14, originally.
+
+GTKWave Waveforms:
+
+![image](https://github.com/user-attachments/assets/3dfdaea2-f3c3-4694-95aa-e1a910ac3dfb)
+
+![image](https://github.com/user-attachments/assets/80a2e77f-c24c-426d-9419-5d5af8bdd2cb)
+
+![image](https://github.com/user-attachments/assets/cc1b2800-e5f9-4ef1-a733-b8aa96e23268)
+
+Makerchip Waveforms:
+
+![image](https://github.com/user-attachments/assets/c08ea09c-bec9-4627-83b4-9cea716ddcb8)
+
+![image](https://github.com/user-attachments/assets/c69b0bdf-313c-4ab0-b1e4-74e52c333941)
+
+![Uploading image.png…]()
+
+
 
 
 
