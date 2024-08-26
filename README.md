@@ -1184,8 +1184,9 @@ Makerchip Waveforms:
 
 ![image](https://github.com/user-attachments/assets/c69b0bdf-313c-4ab0-b1e4-74e52c333941)
 
-![Uploading image.png…]()
+![image](https://github.com/user-attachments/assets/6644ae4f-0905-4570-96fa-66f3a80066c4)
 
+We can observe the gradual increment in sum from 0 to 9 and at the end the sum of numbers from 0 to 9 is 45 which is Ox2D in hexadecimal which is observed in the waveform.
 
 
 
