@@ -8,6 +8,7 @@
 - [Task 4: A C program which does a binary search on a sorted array and its Spike simulation](#task-4-a-c-program-which-does-a-binary-search-on-a-sorted-array-and-its-spike-simulation)
 - [Task 5: A 5 stage RISCV processor](#task-5-a-5-stage-riscv-processor)
 - [Task 6: TLV to Verilog](#task-6-tlv-to-verilog)
+- [Task 7: Generate PLL and DAC output waveforms](#task-7-Generate-PLL-and-dac-output-waveforms)
 
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
@@ -1187,6 +1188,50 @@ Makerchip Waveforms:
 ![image](https://github.com/user-attachments/assets/6644ae4f-0905-4570-96fa-66f3a80066c4)
 
 We can observe the gradual increment in sum from 0 to 9 and at the end the sum of numbers from 0 to 9 is 45 which is Ox2D in hexadecimal which is observed in the waveform.
+
+## Task-7: Generate PLL and DAC output waveforms
+
+Verilog and GTKWave Installation:
+
+![image](https://github.com/user-attachments/assets/a9d04d02-7714-4faf-bf0d-58c9a04da345)
+
+Yosys Installation:
+
+![image](https://github.com/user-attachments/assets/a2f39896-07ac-469a-903f-95c8706b9fb2)
+
+We first clone the BabySoC_Simulation repository:
+
+```
+git clone https://github.com/Subhasis-Sahu/BabySoC_Simulation.git
+```
+
+Then edit the top level code:
+
+![image](https://github.com/user-attachments/assets/efe5a061-799f-42f7-86cb-d11936fbc965)
+
+Then run the following commands:
+
+```
+cd BabySoC_Simulation
+iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+./pre_synth_sim.out
+gtkwave pre_synth_sim.vcd
+```
+
+Output Waveforms:
+
+![image](https://github.com/user-attachments/assets/b9ae62f9-6664-49a4-9f4d-3fa3629fc04a)
+
+![image](https://github.com/user-attachments/assets/81df3f22-c148-4c14-a82d-ecd128f87aba)
+
+
+
+
+
+
+
+
+
 
 
 
