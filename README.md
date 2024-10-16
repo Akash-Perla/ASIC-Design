@@ -1366,11 +1366,37 @@ Output:
 
 ![image](https://github.com/user-attachments/assets/6f6f1e5b-6fb5-4531-a9e6-df846598f3fe)
 
-![image](https://github.com/user-attachments/assets/c2aec86a-0ab5-4380-8d9d-8104418e06c3)
+![image](https://github.com/user-attachments/assets/339d285b-8c78-4864-a795-030c012b6bd7)
+
 
 ### Day 2: Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
 
+Run the below commands to view the contents inside the .lib file:
 
+```
+cd ASIC/sky130RTLDesignAndSynthesisWorkshop/lib/
+vim sky130_fd_sc_hd__tt_025C_1v80.lib
+```
+
+![image](https://github.com/user-attachments/assets/d5dbfd3c-5f89-42b7-9505-2e5946717169)
+
+The liberty(.lib) files store PVT parameters (Process, Voltage, Temperature). Variations in these parameters can significantly affect circuit performance. Manufacturing variations, voltage fluctuations, and temperature changes all contribute to this impact."
+
+We can also find different versions of the same cell. For example, consider the AND gate
+
+![image](https://github.com/user-attachments/assets/d9d6f28d-3a58-4323-87be-17d9a0255736)
+
+![image](https://github.com/user-attachments/assets/562710e7-544f-4d3b-b22a-8f49e492ed7e)
+
+![image](https://github.com/user-attachments/assets/8fb876cc-3b6f-4764-893d-5c17590a7ae3)
+
+We can observe that:
+
+* and2_0 -- taking the least area, more delay and low power.
+* and2_1 -- taking more area, less delay and high power.
+* and2_2 -- taking the largest area, larger delay and highest power.
+
+Hierarchical vs Flat Synthesis:
 
 
 
