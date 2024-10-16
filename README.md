@@ -9,6 +9,7 @@
 - [Task 5: A 5 stage RISCV processor](#task-5-a-5-stage-riscv-processor)
 - [Task 6: TLV to Verilog](#task-6-tlv-to-verilog)
 - [Task 7: Generate PLL and DAC output waveforms](#task-7-Generate-PLL-and-dac-output-waveforms)
+- [Task 8: RTL Design using Verilog with Sky130 Technology](#task-8-RTL-Design-using-Verilog-with-Sky130-Technology)
 
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
@@ -1223,6 +1224,157 @@ Output Waveforms:
 ![image](https://github.com/user-attachments/assets/b9ae62f9-6664-49a4-9f4d-3fa3629fc04a)
 
 ![image](https://github.com/user-attachments/assets/81df3f22-c148-4c14-a82d-ecd128f87aba)
+
+## Task-8: RTL Design using Verilog with Sky130 Technology
+
+### Day 1: Introduction to Verilog RTL Design and Synthesis
+
+Simulator is a tool used to check if it adheres to the designed specifications by simualating the code. Simulator looks for the changes on the input signals and upon change to the input the output is evaluated. RTL design is the Verilog code that implements a circuit. To verify it, a testbench is written and simulated using Icarus Verilog. The VCD(Value Change Dump) file generated is viewed using GTKWave to debug and verify the design's functionality. GTKWave allows users to load and inspect waveforms generated during the simulation, helping them understand signal interactions, timing relationships, and overall circuit behavior.
+
+The below is the Iverilog based Simulation Flow
+
+![image](https://github.com/user-attachments/assets/7da43121-8525-4e69-9543-694f9b843260)
+
+Set up the tool flow using the below commands:
+
+```
+mkdir ASIC
+cd ASIC
+git clone https://github.com/kunalg123/vsdflow.git
+git clone https://github.com/kunalg123/sky130RTLDesignAndSynthesisWorkshop.git
+```
+
+![image](https://github.com/user-attachments/assets/42113764-02f5-4872-bc1e-2ece969ef0d8)
+
+
+Command to view the folder structure of the lab, and list the contents of the directory:
+
+```
+cd sky130RTLDesignAndSynthesisWorkshop
+ls -R
+```
+
+![image](https://github.com/user-attachments/assets/736aa42f-afa3-4a9b-9575-d33f07d6dead)
+
+The below consists of the verilog files used in this lab:
+
+![image](https://github.com/user-attachments/assets/75b475ae-e94f-4b61-a6d6-fed3c0496054)
+
+There are a number of verilog designs and testbench files for simulation. Run the following commands to simulate the verilog code 'good_mux.v'.
+The first line will compile and check for syntax errors in both the design and testbench. An executable file 'a.out' is generated on successful compilation. On executing a.out, a vcd file is generated that captures changes in the input and output values. GTKWave is used to view the waveforms
+
+```
+iverilog good_mux.v tb_good_mux.v
+./a.out
+gtkwave tb_good_mux.vcd
+```
+
+![image](https://github.com/user-attachments/assets/05acc3e9-249e-46af-bd2f-afdc0c6ffef2)
+
+![image](https://github.com/user-attachments/assets/a3210335-6fef-4b0e-b305-76382009e1bc)
+
+**Code for good_mux.v :**
+
+```
+module good_mux (input i0 , input i1 , input sel , output reg y);
+always @ (*)
+begin
+	if(sel)
+		y <= i1;
+	else 
+		y <= i0;
+end
+endmodule
+
+```
+
+**Code for tb_good_mux.v :**
+
+```
+`timescale 1ns / 1ps
+module tb_good_mux;
+	// Inputs
+	reg i0,i1,sel;
+	// Outputs
+	wire y;
+
+        // Instantiate the Unit Under Test (UUT)
+	good_mux uut (
+		.sel(sel),
+		.i0(i0),
+		.i1(i1),
+		.y(y)
+	);
+
+	initial begin
+	$dumpfile("tb_good_mux.vcd");
+	$dumpvars(0,tb_good_mux);
+	// Initialize Inputs
+	sel = 0;
+	i0 = 0;
+	i1 = 0;
+	#300 $finish;
+	end
+
+always #75 sel = ~sel;
+always #10 i0 = ~i0;
+always #55 i1 = ~i1;
+endmodule
+
+```
+
+Synthesizer is the tool used for converting the RTL to netlist. Yosys is one such open source synthesizer. Yosys optimizes the design, mapping it to specific target technology libraries or FPGA architectures, and generates an optimized netlist that can be further analyzed and prepared for physical layout and fabrication.
+
+**Yosys Flow**
+
+![image](https://github.com/user-attachments/assets/b70ab253-cba9-41eb-9d5b-ad23971384cd)
+
+**Verify the Synthesis**
+
+The same testbench that is used for the simulation can be used for the synthesized netlist as well.
+
+![image](https://github.com/user-attachments/assets/6e56fdd0-c17e-4dad-b4c2-0b8c3828b904)
+
+
+Synthesis has three steps: RTL to Gate level translation, The design is then converted into gates and the connections are made between the gates and the output is given out as a file called netlist
+
+![image](https://github.com/user-attachments/assets/2922bb42-598d-4303-a9fc-697789ebace9)
+
+**Liberty(.lib):** Its a collection of logical modules. It includes basic logic gates like And, Or, Not, etc... and it contains different variants of the same gate ike 2input, 3input, 4input, slow, fast, medium gates etc. Fast cells are used if only high performance is needed. Slower cells is used to address hold time issues. IThe selection of faster cells in digital circuit design can increase area and power consumption while potentially leading to hold time violations. Conversely, excessive use of slower cells can result in suboptimal performance. The optimal cell selection for synthesis is guided by constraints that balance area, power, and timing requirements.
+
+
+The below is the Synthesis(Illustration)
+
+![image](https://github.com/user-attachments/assets/6afc2127-2b77-4ab7-98ed-ee521977ec1c)
+
+Use the below commands for synthesis:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog good_mux.v
+synth -top good_mux
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verlog good_mux_netlist.v
+write_verilog -noattr good_mux_netlist.v
+```
+
+Output:
+
+![image](https://github.com/user-attachments/assets/65454f0d-109b-423a-a7e2-d15780aa1aab)
+
+![image](https://github.com/user-attachments/assets/6f6f1e5b-6fb5-4531-a9e6-df846598f3fe)
+
+![image](https://github.com/user-attachments/assets/c2aec86a-0ab5-4380-8d9d-8104418e06c3)
+
+### Day 2: Timing libs, hierarchical vs flat synthesis and efficient flop coding styles
+
+
+
+
+
+
 
 
 
