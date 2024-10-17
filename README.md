@@ -1629,32 +1629,314 @@ assign y = a * 2;
 endmodule
 ```
 
+Truth Table:
+
+| a2 | a1 | a0 | y3 | y2 | y1 | y0 |
+|---|---|---|---|---|---|---|
+| 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| 0 | 0 | 1 | 0 | 0 | 1 | 0 |
+| 0 | 1 | 0 | 0 | 1 | 0 | 0 |
+| 0 | 1 | 1 | 0 | 1 | 1 | 0 |
+| 1 | 0 | 0 | 1 | 0 | 0 | 0 |
+| 1 | 0 | 1 | 1 | 0 | 1 | 0 |
+| 1 | 1 | 0 | 1 | 1 | 0 | 0 |
+| 1 | 1 | 1 | 1 | 1 | 1 | 0 |
+
+We can see the multiplication of a number by 2 doesnt really need any extra hardware we just need to append the LSB's with zeroes and the remaining bits are the input bits of same, It can be realised by grouding the LSB's and wiring the input properly to the output.
 
 
+Run the below code to view the netlist:
 
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_2.v
+synth -top mul2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mult_2_net.v
+```
 
+Statistics:
 
+![image](https://github.com/user-attachments/assets/4f5467de-821e-485d-a1ca-595fa438f000)
 
+Netlist:
 
+![image](https://github.com/user-attachments/assets/d2333712-d710-413c-bec9-ae71c415e3fb)
 
+Netlist code:
 
+![image](https://github.com/user-attachments/assets/895a9182-acb0-408f-a715-0b93122b1272)
 
+Example 2:
 
+Consider the verilog code 'mult_8.v' :
 
+```
+module mult8 (input [2:0] a , output [5:0] y);
+	assign y = a * 9;
+endmodule
+```
 
+In this design the 3-bit input number "a" is multiplied by 9 i.e (a*9) which can be re-written as (a*8) + a . The term (a*8) is nothing but a left shifting the number a by three bits. Consider that a = a2 a1 a0. (a*8) results in a2 a1 a0 0 0 0. (a*9)=(a*8)+a = a2 a1 a0 a2 a1 a0 = aa(in 6 bit format). Hence in this case no hardware realization is required. The synthesized netlist of this design is shown below:
 
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog mult_8.v
+synth -top mult8
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr mult_8_net.v
+```
 
+Statistics:
 
+![image](https://github.com/user-attachments/assets/dc7480c5-f8f9-4186-b655-408a9381cdd6)
 
+Netlist:
 
+![image](https://github.com/user-attachments/assets/495a4cdf-7c6e-42a7-abd9-9d538c691cf6)
 
+Netlist code:
 
+![image](https://github.com/user-attachments/assets/bde3417b-dc61-4033-92f2-5ff0fae27367)
 
+### Day 3: Combinational ans sequential optimizations
 
+There are two types of optimisations: Combinational and Sequential optimisations. These optimisations are done inorder to achieve designs that are efficient in terms of area, power, and performance.
 
+**Combinational Optimization**
 
+The techiniques used are:
 
+- Constant Propagation (Direct Optimisation)
+- Boolean Logic Optimisation (using K-Map or Quine McCluskey method)
 
+**Constant Propagation:**
+
+Consider the below circuit:
+
+![image](https://github.com/user-attachments/assets/24fcec7b-7b46-4d73-b93d-a257883ef6e5)
+
+The top circuit uses 6 transistors(3 nmos and 3 pmos). The bottom cicuit uses 2 transistors(1 nmos and 1 pmos) when we make A zero as the logic becomes invertor. 
+
+**Boolean Logic Optimisation:**
+
+Consider the below verilog code:
+
+`assign y = a?(b?c:(c?a:0)):(!c);`
+
+The ternary operator (?:) will realize a mux upon synthesis as shown below. 
+
+![image](https://github.com/user-attachments/assets/22937fd8-8b2e-4da1-a19a-25563b92f5dd)
+
+The circuit can be optimised as follows:
+
+![image](https://github.com/user-attachments/assets/45a4b461-cc9b-4512-a0d1-7ecd123e09bf)
+
+**Example 1:**
+
+Verllog code:
+
+```
+module opt_check (input a , input b , output y);
+	assign y = a?b:0;
+endmodule
+```
+
+The above code infers a multiplexer and since one of the inputs of the multiplexer is always connected to the ground it will infer an AND gate on optimisation.
+
+Run the below code for netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check.v
+synth -top opt_check
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check_net.v
+```
+
+![image](https://github.com/user-attachments/assets/8c1b73d8-4663-46db-9dad-37377b306ee6)
+
+![image](https://github.com/user-attachments/assets/18524e97-6028-4181-bfba-4bd6c447d0c4)
+
+**Example 2:**
+
+Verllog code:
+
+```
+module opt_check2 (input a , input b , output y);
+	assign y = a?1:b;
+endmodule
+```
+
+Since one of the inputs of the multiplexer is always connected to the logic 1 it will infer an OR gate on optimisation.The OR gate will be NAND implementation since NOR gate has stacked pmos while NAND implementation has stacked nmos.
+
+Run the below code for netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check2.v
+synth -top opt_check2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check2_net.v
+```
+
+![image](https://github.com/user-attachments/assets/3d5c20ce-4c4a-4aff-a4a3-4901e544d736)
+
+![image](https://github.com/user-attachments/assets/38df1e9e-b935-4156-9db7-38a5da0fdd90)
+
+**Example 3:**
+
+Verilog code:
+
+```
+module opt_check3 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+```
+
+On optimisation the above design becomes a 3 input AND gate.
+
+Run the below code for netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check3.v
+synth -top opt_check3
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check3_net.v
+```
+
+![image](https://github.com/user-attachments/assets/e89f09fd-488b-4469-b00e-4e6490e0a78f)
+
+![image](https://github.com/user-attachments/assets/732b0264-fb2c-41c5-9027-68c70679cdbb)
+
+**Example 4:**
+
+Verilog code:
+
+```
+module opt_check4 (input a , input b, input c , output y);
+	assign y = a?(c?b:0):0;
+endmodule
+```
+
+On optimisation the above design becomes a 2 input XNOR gate.
+
+Run the below code for netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog opt_check4.v
+synth -top opt_check4
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr opt_check4_net.v
+```
+![image](https://github.com/user-attachments/assets/178c1cea-259c-409c-807e-9a79bd1fdb68)
+
+![image](https://github.com/user-attachments/assets/7df25146-326c-48f2-814f-7efebbe41906)
+
+**Example 5:**
+
+Verilog code:
+
+```
+module sub_module1(input a , input b , output y);
+ assign y = a & b;
+endmodule
+
+module sub_module2(input a , input b , output y);
+ assign y = a^b;
+endmodule
+
+module multiple_module_opt(input a , input b , input c , input d , output y);
+wire n1,n2,n3;
+
+sub_module1 U1 (.a(a) , .b(1'b1) , .y(n1));
+sub_module2 U2 (.a(n1), .b(1'b0) , .y(n2));
+sub_module2 U3 (.a(b), .b(d) , .y(n3));
+
+assign y = c | (b & n1); 
+
+endmodule
+```
+
+On optimisation the above design becomes a AND OR gate
+
+Run the below code for netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_module_opt.v
+synth -top multiple_module_opt
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten
+show
+write_verilog -noattr multiple_module_opt_net.v
+```
+
+![image](https://github.com/user-attachments/assets/1fdcfd2d-0ede-4850-9878-da3c74558227)
+
+![image](https://github.com/user-attachments/assets/10c83e53-9e4a-48e8-8dd6-253aad997879)
+
+**Example 6:**
+
+Verilog code:
+
+```
+module sub_module(input a , input b , output y);
+	assign y = a & b;
+endmodule
+
+module multiple_module_opt2(input a , input b , input c , input d , output y);
+		wire n1,n2,n3;
+	sub_module U1 (.a(a) , .b(1'b0) , .y(n1));
+	sub_module U2 (.a(b), .b(c) , .y(n2));
+	sub_module U3 (.a(n2), .b(d) , .y(n3));
+	sub_module U4 (.a(n3), .b(n1) , .y(y));
+endmodule
+```
+
+On optimisation the above design becomes Y=0 
+
+Run the below code for netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_module_opt2.v
+synth -top multiple_module_opt2
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten
+show
+write_verilog -noattr multiple_module_opt2_net.v
+```
+
+![image](https://github.com/user-attachments/assets/aef1e9db-3590-4da5-a863-a92e3fe8fe1b)
+
+![image](https://github.com/user-attachments/assets/725961e1-300f-42db-a3bf-fe7df6b29233)
+
+**Sequential Logic Optimizations**
 
 
 
