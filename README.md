@@ -1398,6 +1398,250 @@ We can observe that:
 
 Hierarchical vs Flat Synthesis:
 
+Hierarchical synthesis involves synthesizing a complex design by breaking it down into various sub-modules, where each module is synthesized separately to generate gate-level netlists and then integrated. Hierarchical synthesis allows for better organization, reuse of modules, and incremental changes to the design without affecting the entire system. Flat synthesis, on the other hand, treats the entire design as a single, monolithic unit during the synthesis process and regardless of any hierarchical relations, it is synthesized into a single netlist. Flat synthesis can be useful for optimizing certain designs but it becomes challenging to maintain, analyze, and modify the design due to its lack of structural modularity.
+
+Consider the verilog file `multiple_modules.v` which is given in the verilog_files directory
+
+```
+module sub_module2 (input a, input b, output y);
+    assign y = a | b;
+endmodule
+
+module sub_module1 (input a, input b, output y);
+    assign y = a&b;
+endmodule
+
+
+module multiple_modules (input a, input b, input c , output y);
+    wire net1;
+    sub_module1 u1(.a(a),.b(b),.y(net1));  //net1 = a&b
+    sub_module2 u2(.a(net1),.b(c),.y(y));  //y = net1|c ,ie y = a&b + c;
+endmodule
+```
+
+To perform **hierarchical synthesis** on the `multiple_modules.v` file type the following commands:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top multiple_modules
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show multiple_modules
+write_verilog -noattr multiple_modules_hier.v
+```
+
+The following statistics are displayed:
+
+![image](https://github.com/user-attachments/assets/52098879-b1b3-43c4-bba4-ca00e0603ed1)
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/9167285b-0f13-4c41-944f-0b6becfafd0a)
+
+Hierarchical netlist code:
+
+![image](https://github.com/user-attachments/assets/15c85939-1276-4893-82b0-a5894e9066a8)
+
+To perform **flat synthesis** on the `multiple_modules.v` file type the following commands:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog multiple_modules.v
+synth -top multiple_modules
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+write_verilog -noattr multiple_modules_flat.v
+```
+
+The following statistics are displayed:
+
+![image](https://github.com/user-attachments/assets/7dd6d1e3-2821-490a-b71a-c098b9654a7f)
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/722fab03-6747-4887-8eae-474b49f36324)
+
+Flat synthesis netlist code:
+
+![image](https://github.com/user-attachments/assets/74b94d17-692c-41e1-a138-84a9376797f2)
+
+To perform **sub module synthesis**. type the below commands:
+
+The following statistics are displayed:
+
+![image](https://github.com/user-attachments/assets/46762203-dd3a-45a5-925f-2d3f07bf51f3)
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/9146c17c-a9cd-490a-a16b-9c836dd04708)
+
+Netlist code:
+
+![image](https://github.com/user-attachments/assets/936aca6e-0ad8-4d3b-abbc-46197b490194)
+
+**Flip-Flop Coding Styles and Optimizations**
+
+Flip-Flops are an essential part of sequential logic in a circuit and here we explore the design and synthesis of various types of flip-flops. To prevent glitches in digital circuits, we use flip-flops to store intermediate values. This ensures that combinational circuit inputs remain stable until the clock edge, avoiding glitches and maintaining correct operation:
+
+**Asynchronous Reset Flip-flop:**
+
+Verilog Code:
+
+```
+module dff_asyncres ( input clk ,  input async_reset , input d , output reg q );
+always @ (posedge clk , posedge async_reset)
+begin
+	if(async_reset)
+		q <= 1'b0;
+	else	
+		q <= d;
+end
+endmodule
+```
+
+Run the below code to view the simulation:
+
+```
+iverilog dff_asyncres.v tb_dff_asyncres.v
+./a.out
+gtkwave tb_dff_asyncres.vcd
+```
+
+Waveform:
+
+![image](https://github.com/user-attachments/assets/55bbcda4-4c31-4d51-8ee3-bd20faa7d153)
+
+Run the below code to view the netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_asyncres.v
+synth -top dff_asyncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/1cf2c1a3-c7ac-4353-9831-856290bc4049)
+
+**Synchronous Reset Flip-flop:**
+
+Verilog Code:
+
+```
+module dff_syncres ( input clk , input async_reset , input sync_reset , input d , output reg q );
+always @ (posedge clk )
+begin
+	if (sync_reset)
+		q <= 1'b0;
+	else	
+		q <= d;
+end
+endmodule
+```
+
+Run the below code to view the simulation:
+
+```
+iverilog dff_syncres.v tb_dff_syncres.v
+./a.out
+gtkwave tb_dff_syncres.vcd
+```
+
+Waveform:
+
+![image](https://github.com/user-attachments/assets/8b80edd0-efdb-4ca7-9e4c-7db904655d20)
+
+Run the below code to view the netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_syncres.v
+synth -top dff_syncres
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/cc4943e9-f3a2-4e44-9f7c-920650a8115c)
+
+**Asynchronous Set Flip-flop:**
+
+Verilog Code:
+
+```
+module dff_async_set ( input clk ,  input async_set , input d , output reg q );
+always @ (posedge clk , posedge async_set)
+begin
+	if(async_set)
+		q <= 1'b1;
+	else	
+		q <= d;
+end
+endmodule
+```
+
+Run the below code to view the simulation:
+
+```
+iverilog dff_async_set.v tb_dff_async_set.v
+./a.out
+gtkwave tb_dff_async_set.vcd
+```
+
+Waveform:
+
+![image](https://github.com/user-attachments/assets/ec901aae-f8a9-4b23-8296-87dda912fc07)
+
+Run the below code to view the netlist:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog dff_async_set.v
+synth -top dff_async_set
+dfflibmap -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
+```
+
+Netlist:
+
+![image](https://github.com/user-attachments/assets/9eef0111-3793-48d7-bba6-0a44021bb93f)
+
+**Optimizations:**
+
+Example 1:
+
+Consider the verilog code 'mult_2.v' :
+
+```
+module mul2 (input [2:0] a, output [3:0] y);
+assign y = a * 2;
+endmodule
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
