@@ -2273,7 +2273,7 @@ gtkwave tb_counter_opt.vcd
 ```
 ![image](https://github.com/user-attachments/assets/977035cf-fd8e-4432-8717-ca7f6966d993)
 
-### Day 3: GLS, blocking vs non-blocking and Synthesis-Simulation mismatch
+### Day 4: GLS, blocking vs non-blocking and Synthesis-Simulation mismatch
 
 Gate Level Simulation (GLS) is a crucial step in the verification process of digital circuits. It involves simulating the synthesized netlist, which is a lower-level representation of the design, using a testbench to verify its logical correctness and timing behavior. By comparing the simulated outputs to the expected outputs, GLS ensures that the synthesis process has not introduced any errors and that the design meets its performance requirements.
 
@@ -2283,7 +2283,7 @@ Sensitivity lists are crucial for accurate circuit behavior. If a sensitivity li
 
 **GLS Simulation**
 
-Example 1:
+**Example 1:**
 
 Verilog code:
 
@@ -2331,7 +2331,7 @@ gtkwave tb_ternary_operator_mux.vcd
 
 In this case there is no mismatch between the waveforms before and after synthesis
 
-Example 2:
+**Example 2:**
 
 Verilog code:
 
