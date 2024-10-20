@@ -1451,6 +1451,7 @@ read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog multiple_modules.v
 synth -top multiple_modules
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten
 show
 write_verilog -noattr multiple_modules_flat.v
 ```
@@ -1468,6 +1469,15 @@ Flat synthesis netlist code:
 ![image](https://github.com/user-attachments/assets/74b94d17-692c-41e1-a138-84a9376797f2)
 
 To perform **sub module synthesis**. type the below commands:
+
+```
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+read_verilog multiple_modules.v 
+synth -top sub_module
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib 
+show
+```
 
 The following statistics are displayed:
 
