@@ -1774,7 +1774,8 @@ show
 write_verilog -noattr opt_check_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/8c1b73d8-4663-46db-9dad-37377b306ee6)
+![image](https://github.com/user-attachments/assets/c0b9561e-d5f6-4e60-a037-7388cec4a000)
+
 
 ![image](https://github.com/user-attachments/assets/18524e97-6028-4181-bfba-4bd6c447d0c4)
 
@@ -1803,7 +1804,7 @@ show
 write_verilog -noattr opt_check2_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/3d5c20ce-4c4a-4aff-a4a3-4901e544d736)
+![image](https://github.com/user-attachments/assets/4aa3a255-c909-4786-bf65-760b816ffaaf)
 
 ![image](https://github.com/user-attachments/assets/38df1e9e-b935-4156-9db7-38a5da0fdd90)
 
@@ -1832,7 +1833,8 @@ show
 write_verilog -noattr opt_check3_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/e89f09fd-488b-4469-b00e-4e6490e0a78f)
+![image](https://github.com/user-attachments/assets/38a83f8b-73a8-4d44-b36d-84a716742514)
+
 
 ![image](https://github.com/user-attachments/assets/732b0264-fb2c-41c5-9027-68c70679cdbb)
 
@@ -1860,7 +1862,8 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 write_verilog -noattr opt_check4_net.v
 ```
-![image](https://github.com/user-attachments/assets/178c1cea-259c-409c-807e-9a79bd1fdb68)
+![image](https://github.com/user-attachments/assets/199b9558-76e1-4022-8d0c-cc46542da246)
+
 
 ![image](https://github.com/user-attachments/assets/7df25146-326c-48f2-814f-7efebbe41906)
 
@@ -1905,7 +1908,8 @@ show
 write_verilog -noattr multiple_module_opt_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/1fdcfd2d-0ede-4850-9878-da3c74558227)
+![image](https://github.com/user-attachments/assets/d89bbe82-5aff-4400-8913-085fadc0b45a)
+
 
 ![image](https://github.com/user-attachments/assets/10c83e53-9e4a-48e8-8dd6-253aad997879)
 
@@ -1943,7 +1947,7 @@ show
 write_verilog -noattr multiple_module_opt2_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/aef1e9db-3590-4da5-a863-a92e3fe8fe1b)
+![image](https://github.com/user-attachments/assets/9bc043e4-344e-4526-9399-9b51c5f8b17a)
 
 ![image](https://github.com/user-attachments/assets/725961e1-300f-42db-a3bf-fe7df6b29233)
 
