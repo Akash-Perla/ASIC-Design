@@ -1485,7 +1485,8 @@ The following statistics are displayed:
 
 Netlist:
 
-![image](https://github.com/user-attachments/assets/9146c17c-a9cd-490a-a16b-9c836dd04708)
+![image](https://github.com/user-attachments/assets/7d1fd148-bbf7-4128-88df-15e0e2fc755b)
+
 
 Netlist code:
 
@@ -1981,7 +1982,9 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 write_verilog -noattr dff_const1_net.v
 ```
-![image](https://github.com/user-attachments/assets/8bfe4902-73e5-4d99-8f66-776a1249b1ec)
+
+
+![image](https://github.com/user-attachments/assets/080978a6-12a9-443c-8d25-e923d6560b9b)
 
 ![image](https://github.com/user-attachments/assets/b66b706b-cc36-4e8a-aeda-1b8a30480bd8)
 
@@ -2025,7 +2028,7 @@ show
 write_verilog -noattr dff_const2_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/687980d8-a1cf-48ce-b9fe-8feeae53d7fb)
+![image](https://github.com/user-attachments/assets/bb6d4ae1-0cf3-4186-bb6b-aca6476b1840)
 
 ![image](https://github.com/user-attachments/assets/3503d2c9-ac1b-4d1b-986e-5aaf494b9059)
 
@@ -2077,7 +2080,8 @@ show
 write_verilog -noattr dff_const3_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/0e4b1a0d-aa81-4f9d-b38e-7db7fc1af26c)
+![image](https://github.com/user-attachments/assets/cdf64a91-3fad-429b-b91e-b2b563d16dc7)
+
 
 ![image](https://github.com/user-attachments/assets/3085e4f7-d89f-43e5-a26f-fb1a1fe8999e)
 
@@ -2129,7 +2133,8 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 write_verilog -noattr dff_const4_net.v
 ```
-![image](https://github.com/user-attachments/assets/8aebf733-064e-4d6f-af6d-ab83e8b884b8)
+![image](https://github.com/user-attachments/assets/a10095c1-63f2-4343-9304-413d0f941465)
+
 
 ![image](https://github.com/user-attachments/assets/45dd36fd-035a-4adc-aad8-ffda9c2a3ee2)
 
@@ -2181,7 +2186,8 @@ show
 write_verilog -noattr dff_const5_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/ec4f1712-7053-4651-a6a5-75a1b87fd1f1)
+![image](https://github.com/user-attachments/assets/42cac623-761a-4a4d-9678-7ce0960b0377)
+
 
 ![image](https://github.com/user-attachments/assets/243df51b-d924-465f-9ddf-7523b9d42e60)
 
@@ -2230,7 +2236,8 @@ show
 write_verilog -noattr counter_opt_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/33327f18-8a2b-4f98-9ac6-e170da4c8a2b)
+![image](https://github.com/user-attachments/assets/b08e9a6a-0947-4a36-9c34-1e722a09303e)
+
 
 ![image](https://github.com/user-attachments/assets/b55ceee6-1bbc-4236-957e-3c0c90592573)
 
@@ -2274,7 +2281,8 @@ abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 show
 write_verilog -noattr counter_opt_net.v
 ```
-![image](https://github.com/user-attachments/assets/ce8fc709-36e0-4a9b-8ed6-4f7876bb9d6e)
+![image](https://github.com/user-attachments/assets/6b0daf62-32e0-486e-adfd-71fd8c8edac6)
+
 
 ![image](https://github.com/user-attachments/assets/c8b04d5e-479c-42c5-9af9-b612d85064fb)
 
@@ -2330,7 +2338,8 @@ show
 write_verilog -noattr ternary_operator_mux_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/d306119a-27a1-457c-b9c4-265353517aa8)
+![image](https://github.com/user-attachments/assets/f5cd0b48-d658-45fb-8ad8-323e7f3adab4)
+
 
 ![image](https://github.com/user-attachments/assets/ede78147-5fae-4048-9b5e-8bf689e29468)
 
@@ -2385,7 +2394,7 @@ show
 write_verilog -noattr bad_mux_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/3672151e-bfa8-4717-a372-1093b791cbcc)
+![image](https://github.com/user-attachments/assets/6fc0e220-875c-4162-a242-20d2842fbd0f)
 
 ![image](https://github.com/user-attachments/assets/03bd22e5-88c6-4d2b-a479-d2d7072131d9)
 
@@ -2438,7 +2447,8 @@ show
 write_verilog -noattr blocking_caveat_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/0ff7e4ef-a2fb-4498-a58b-adf0662a49ca)
+![image](https://github.com/user-attachments/assets/d692259c-29ea-4dff-8b4d-e7cc8878cc21)
+
 
 ![image](https://github.com/user-attachments/assets/da84e677-bc84-44ee-8ed2-a4ee9d91977d)
 
