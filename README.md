@@ -1364,7 +1364,7 @@ Output:
 
 ![image](https://github.com/user-attachments/assets/65454f0d-109b-423a-a7e2-d15780aa1aab)
 
-![image](https://github.com/user-attachments/assets/6f6f1e5b-6fb5-4531-a9e6-df846598f3fe)
+![image](https://github.com/user-attachments/assets/d0b5a95f-0c0a-4b68-982d-10006987aed3)
 
 ![image](https://github.com/user-attachments/assets/339d285b-8c78-4864-a795-030c012b6bd7)
 
@@ -1462,7 +1462,7 @@ The following statistics are displayed:
 
 Netlist:
 
-![image](https://github.com/user-attachments/assets/722fab03-6747-4887-8eae-474b49f36324)
+![image](https://github.com/user-attachments/assets/538539a2-9358-444a-9bd3-7309a490a5b5)
 
 Flat synthesis netlist code:
 
@@ -1537,7 +1537,7 @@ show
 
 Netlist:
 
-![image](https://github.com/user-attachments/assets/1cf2c1a3-c7ac-4353-9831-856290bc4049)
+![image](https://github.com/user-attachments/assets/70d7f947-f0e6-4921-b143-5f7419cf3ef6)
 
 **Synchronous Reset Flip-flop:**
 
@@ -1581,7 +1581,7 @@ show
 
 Netlist:
 
-![image](https://github.com/user-attachments/assets/cc4943e9-f3a2-4e44-9f7c-920650a8115c)
+![image](https://github.com/user-attachments/assets/00399402-3299-4fa0-b672-0e97a2009683)
 
 **Asynchronous Set Flip-flop:**
 
@@ -1625,7 +1625,8 @@ show
 
 Netlist:
 
-![image](https://github.com/user-attachments/assets/9eef0111-3793-48d7-bba6-0a44021bb93f)
+![image](https://github.com/user-attachments/assets/a6b6a03b-0b96-467b-9ad8-3367e746b676)
+
 
 **Optimizations:**
 
