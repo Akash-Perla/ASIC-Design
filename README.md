@@ -1909,8 +1909,7 @@ show
 write_verilog -noattr multiple_module_opt_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/d89bbe82-5aff-4400-8913-085fadc0b45a)
-
+![image](https://github.com/user-attachments/assets/aeea3451-3cc9-406d-95a1-b5b35ca708a7)
 
 ![image](https://github.com/user-attachments/assets/10c83e53-9e4a-48e8-8dd6-253aad997879)
 
@@ -1948,7 +1947,8 @@ show
 write_verilog -noattr multiple_module_opt2_net.v
 ```
 
-![image](https://github.com/user-attachments/assets/9bc043e4-344e-4526-9399-9b51c5f8b17a)
+![image](https://github.com/user-attachments/assets/320f495c-3ea1-427b-94ee-352e36786fea)
+
 
 ![image](https://github.com/user-attachments/assets/725961e1-300f-42db-a3bf-fe7df6b29233)
 
