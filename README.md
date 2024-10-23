@@ -2483,11 +2483,25 @@ gtkwave pre_synth_sim.vcd
 Post-synthesis:
 
 ```
-
+yosys       
+read_liberty -lib /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_verilog clk_gate.v
+read_verilog rvmyth.v
+synth -top rvmyth
+abc -liberty /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+write_verilog -noattr rvmyth_net.v
+!gvim rvmyth_net.v
+exit
 ```
+
 ![image](https://github.com/user-attachments/assets/eee77848-c21c-466e-be2b-89a68b98f3d7)
 
 
+```
+iverilog ../../my_lib/verilog_model/primitives.v ../../my_lib/verilog_model/sky130_fd_sc_hd.v rvmyth.v testbench.v vsdbabysoc.v avsddac.v avsdpll.v clk_gate.v
+./a.out
+gtkwave dump.vcd
+```
 
 
 
