@@ -2490,6 +2490,7 @@ read_verilog clk_gate.v
 read_verilog rvmyth.v
 synth -top rvmyth
 abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+flatten
 show
 write_verilog -noattr rvmyth_net.v
 !gedit rvmyth_net.v
@@ -2504,6 +2505,9 @@ exit
 
 ![image](https://github.com/user-attachments/assets/de5d893b-4e42-49cf-a328-6d0e916095b4)
 
+![image](https://github.com/user-attachments/assets/59cccc9e-e425-4358-adb6-49c72e65f43c)
+
+
 
 ```
 cd ~/VSDBabySoC
@@ -2511,6 +2515,11 @@ make post_synth_sim
 gtkwave output/post_synth_sim/post_synth_sim.vcd
 ```
 
+![image](https://github.com/user-attachments/assets/c4e1c701-025e-4feb-b52b-7dd5406134aa)
+
+![image](https://github.com/user-attachments/assets/4197d6e0-e1b5-45ba-a75c-ec248cc02f9f)
+
+![image](https://github.com/user-attachments/assets/6fdf6a3d-799d-40b7-a611-df719933b857)
 
 
 
