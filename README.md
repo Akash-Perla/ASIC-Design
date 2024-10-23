@@ -10,7 +10,7 @@
 - [Task 6: TLV to Verilog](#task-6-tlv-to-verilog)
 - [Task 7: Generate PLL and DAC output waveforms](#task-7-Generate-PLL-and-dac-output-waveforms)
 - [Task 8: RTL Design using Verilog with Sky130 Technology](#task-8-RTL-Design-using-Verilog-with-Sky130-Technology)
-
+- [Task 9: Synthesize RISC-V and compare output with functional simulations](#task-9-Synthesize-RISC-V-and-compare-output-with-functional-simulations)
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
 
@@ -2464,6 +2464,32 @@ gtkwave tb_blocking_caveat.vcd
 ![image](https://github.com/user-attachments/assets/7b75b38c-70fb-444e-bbed-af5f7cd6b263)
 
 In this case there is a synthesis and simulation mismatch. While performing synthesis yosys has corrected the latch error.
+
+## Task-9: Synthesize RISC-V and compare output with functional simulations
+
+Pre-synthesis:
+
+```
+cd VSDBabySoC
+iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
+./pre_synth_sim.out
+gtkwave pre_synth_sim.vcd
+```
+
+![image](https://github.com/user-attachments/assets/ec26e940-cdf6-4312-af80-6042d8063e0e)
+
+![image](https://github.com/user-attachments/assets/8c76f4fd-6c6d-444a-862f-c73d6dc30dd2)
+
+Post-synthesis:
+
+```
+
+```
+![image](https://github.com/user-attachments/assets/eee77848-c21c-466e-be2b-89a68b98f3d7)
+
+
+
+
 
 
 
