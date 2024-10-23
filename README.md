@@ -2477,6 +2477,8 @@ gtkwave output/pre_synth_sim/pre_synth_sim.vcd
 
 ![image](https://github.com/user-attachments/assets/ec26e940-cdf6-4312-af80-6042d8063e0e)
 
+![image](https://github.com/user-attachments/assets/7f4c4af2-1234-4286-9578-0cbafb8b3ec0)
+
 ![image](https://github.com/user-attachments/assets/8c76f4fd-6c6d-444a-862f-c73d6dc30dd2)
 
 Post-synthesis:
@@ -2494,7 +2496,11 @@ write_verilog -noattr rvmyth_net.v
 exit
 ```
 
-![image](https://github.com/user-attachments/assets/eee77848-c21c-466e-be2b-89a68b98f3d7)
+![image](https://github.com/user-attachments/assets/0f9769d3-593f-4296-ba7e-db7fca7d0d9e)
+
+![image](https://github.com/user-attachments/assets/afe1354e-750b-4cbb-bf33-31797c21fe52)
+
+![image](https://github.com/user-attachments/assets/191c0b84-88a1-4f50-8037-93f9e3413bee)
 
 ![image](https://github.com/user-attachments/assets/de5d893b-4e42-49cf-a328-6d0e916095b4)
 
@@ -2504,6 +2510,7 @@ cd ~/VSDBabySoC
 make post_synth_sim
 gtkwave output/post_synth_sim/post_synth_sim.vcd
 ```
+
 
 
 
