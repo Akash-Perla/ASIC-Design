@@ -2471,9 +2471,8 @@ Pre-synthesis:
 
 ```
 cd VSDBabySoC
-iverilog -o ./pre_synth_sim.out -DPRE_SYNTH_SIM src/module/testbench.v -I src/include -I src/module/
-./pre_synth_sim.out
-gtkwave pre_synth_sim.vcd
+make pre_synth_sim
+gtkwave output/pre_synth_sim/pre_synth_sim.vcd
 ```
 
 ![image](https://github.com/user-attachments/assets/ec26e940-cdf6-4312-af80-6042d8063e0e)
@@ -2483,24 +2482,27 @@ gtkwave pre_synth_sim.vcd
 Post-synthesis:
 
 ```
-yosys       
-read_liberty -lib /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+yosys
+read_liberty -lib ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
 read_verilog clk_gate.v
 read_verilog rvmyth.v
 synth -top rvmyth
-abc -liberty /home/karthikeya/VLSI/sky130RTLDesignAndSynthesisWorkshop/lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+abc -liberty ../lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+show
 write_verilog -noattr rvmyth_net.v
-!gvim rvmyth_net.v
+!gedit rvmyth_net.v
 exit
 ```
 
 ![image](https://github.com/user-attachments/assets/eee77848-c21c-466e-be2b-89a68b98f3d7)
 
+![image](https://github.com/user-attachments/assets/de5d893b-4e42-49cf-a328-6d0e916095b4)
+
 
 ```
-iverilog ../../my_lib/verilog_model/primitives.v ../../my_lib/verilog_model/sky130_fd_sc_hd.v rvmyth.v testbench.v vsdbabysoc.v avsddac.v avsdpll.v clk_gate.v
-./a.out
-gtkwave dump.vcd
+cd ~/VSDBabySoC
+make post_synth_sim
+gtkwave output/post_synth_sim/post_synth_sim.vcd
 ```
 
 
