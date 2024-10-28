@@ -2526,7 +2526,7 @@ gtkwave output/post_synth_sim/post_synth_sim.vcd
 
 ## Task 10: Post Synthesis Static Timing Analysis using OpenSTA
 
-The contents of sdc file:
+The contents of VSDBabySoc/src/sdc/vsdbabysoc_synthesis.sdc:
 
 ```
 set PERIOD 11.05
@@ -2534,11 +2534,6 @@ set PERIOD 11.05
 set_units -time ns
 create_clock [get_pins {pll/CLK}] -name clk -period $PERIOD
 set_clock_uncertainty -setup  [expr $PERIOD * 0.05] [get_clocks clk]
-set_input_delay -min 0 [get_ports ENb_CP] -clock [get_clocks "clk"]
-set_input_delay -min 0 [get_ports ENb_VCO] -clock [get_clocks "clk"]
-set_input_delay -min 0 [get_ports REF] -clock [get_clocks "clk"]
-set_input_delay -min 0 [get_ports VCO_IN] -clock [get_clocks "clk"]
-set_input_delay -min 0 [get_ports VREFH] -clock [get_clocks "clk"]
 set_clock_transition [expr $PERIOD * 0.05] [get_clocks clk]
 set_clock_uncertainty -hold [expr $PERIOD * 0.08] [get_clocks clk]
 set_input_transition [expr $PERIOD * 0.08] [get_ports ENb_CP]
