@@ -11,6 +11,7 @@
 - [Task 7: Generate PLL and DAC output waveforms](#task-7-Generate-PLL-and-dac-output-waveforms)
 - [Task 8: RTL Design using Verilog with Sky130 Technology](#task-8-RTL-Design-using-Verilog-with-Sky130-Technology)
 - [Task 9: Synthesize RISC-V and compare output with functional simulations](#task-9-Synthesize-RISC-V-and-compare-output-with-functional-simulations)
+- [Task 10: Post Synthesis Static Timing Analysis using OpenSTA](#task-10-Post-Synthesis-Static-Timing-Analysis-using-OpenSTA)
 
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
 
@@ -2521,6 +2522,60 @@ gtkwave output/post_synth_sim/post_synth_sim.vcd
 ![image](https://github.com/user-attachments/assets/4197d6e0-e1b5-45ba-a75c-ec248cc02f9f)
 
 ![image](https://github.com/user-attachments/assets/6fdf6a3d-799d-40b7-a611-df719933b857)
+
+
+## Task 10: Post Synthesis Static Timing Analysis using OpenSTA
+
+The contents of sdc file:
+
+```
+set PERIOD 11.05
+
+set_units -time ns
+create_clock [get_pins {pll/CLK}] -name clk -period $PERIOD
+set_clock_uncertainty -setup  [expr $PERIOD * 0.05] [get_clocks clk]
+set_input_delay -min 0 [get_ports ENb_CP] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports ENb_VCO] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports REF] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports VCO_IN] -clock [get_clocks "clk"]
+set_input_delay -min 0 [get_ports VREFH] -clock [get_clocks "clk"]
+set_clock_transition [expr $PERIOD * 0.05] [get_clocks clk]
+set_clock_uncertainty -hold [expr $PERIOD * 0.08] [get_clocks clk]
+set_input_transition [expr $PERIOD * 0.08] [get_ports ENb_CP]
+set_input_transition [expr $PERIOD * 0.08] [get_ports ENb_VCO]
+set_input_transition [expr $PERIOD * 0.08] [get_ports REF]
+set_input_transition [expr $PERIOD * 0.08] [get_ports VCO_IN]
+set_input_transition [expr $PERIOD * 0.08] [get_ports VREFH]
+```
+
+Now, run the below commands:
+
+```
+cd VSDBabySoc/src
+sta
+read_liberty -min ./lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -min ./lib/avsdpll.lib
+read_liberty -min ./lib/avsddac.lib
+read_liberty -max ./lib/sky130_fd_sc_hd__tt_025C_1v80.lib
+read_liberty -max ./lib/avsdpll.lib
+read_liberty -max ./lib/avsddac.lib
+read_verilog ../output/synth/vsdbabysoc.synth.v
+link_design vsdbabysoc
+read_sdc ./sdc/vsdbabysoc_synthesis.sdc
+report_checks -path_delay min_max -format full_clock_expanded -digits 4
+```
+
+The below is the snapshot:
+
+![image](https://github.com/user-attachments/assets/c47bc808-33dc-4a18-8ed2-a4986fb69039)
+
+Setup Time:
+
+![image](https://github.com/user-attachments/assets/f1fe0921-2970-412a-97ce-f9e384a43de1)
+
+Hold Time:
+
+![image](https://github.com/user-attachments/assets/06bb5d89-164f-4dfd-aeac-2db1a04d33bd)
 
 
 
