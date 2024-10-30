@@ -2636,8 +2636,9 @@ Output:
 
 Graphs:
 
+![image](https://github.com/user-attachments/assets/c6a16309-d461-4bdf-a16c-0efda04b5225)
 
-
+![image](https://github.com/user-attachments/assets/47a9c697-250f-497a-8072-e7c763ac494d)
 
 
 
