@@ -1,4 +1,3 @@
-![image](https://github.com/user-attachments/assets/1a8bd355-dfea-4bc2-8a44-f4f3e5d7d025)# ASIC-Design
 
 ## Contents
 
@@ -2934,15 +2933,21 @@ gedit picorv32a.floorplan.def
 
 According to floorplan definition:
 
-1000 Unit Distance = 1 Micron
-Die width in unit distance = 660685−0 = 660685
-Die height in unit distance = 671405−0 = 671405
-Distance in microns = Value in Unit Distance/1000
-​Die width in microns = 660685/1000 = 660.685 Microns
-Die height in microns = 671405/1000 = 671.405 Microns
+1000 Unit Distance = 1 Micron  
+
+Die width in unit distance = 660685−0 = 660685 
+
+Die height in unit distance = 671405−0 = 671405  
+
+Distance in microns = Value in Unit Distance/1000  
+
+​Die width in microns = 660685/1000 = 660.685 Microns  
+
+Die height in microns = 671405/1000 = 671.405 Microns  
+
 Area of die in microns = 660.685 × 671.405 = 443587.212425 Square Microns
 
-To view the floorplan in magic. Open a new terminal and runt he below commands:
+To view the floorplan in magic. Open a new terminal and run the below commands:
 
 ```
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
