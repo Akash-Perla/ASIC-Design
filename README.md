@@ -3116,40 +3116,6 @@ magic -T sky130A.tech sky130_inv.mag &
 
 **Inception of Layout CMOS fabrication process**
 
-16-mask CMOS process:
-
-1. Selecting a substrate
-
-![image](https://github.com/user-attachments/assets/8f9c6fc8-5a33-4d8e-a7ca-d9bc56798c50)
-
-2. Creating an active region for transistors
-
-![image](https://github.com/user-attachments/assets/6212e21d-ae08-4ef1-98bd-dae581ba1636)
-
-3. N-well and P-well formation
-
-![image](https://github.com/user-attachments/assets/3818351f-fd1e-4661-985b-c7557ec7c530)
-
-4. Formation of 'gate'
-
-![image](https://github.com/user-attachments/assets/d0525812-8296-4511-9812-6365fedbb434)
-
-5. Lighty doped drain(LDD) formation
-
-![image](https://github.com/user-attachments/assets/2c91615e-1c44-4fb5-b2e6-46bc0f993a6b)
-
-6. Source and drain formation
-
-![image](https://github.com/user-attachments/assets/0ce8aeaf-1551-4f1a-8096-47bb80cb8cdf)
-
-7. Local interconnect formation
-
-![image](https://github.com/user-attachments/assets/1434753f-b28c-450a-9392-7e42fb20b335)
-
-8. Higher level metal formation
-
-![image](https://github.com/user-attachments/assets/95d825d2-f245-4c58-90bb-ed28a83fd110)
-
 The 16-mask CMOS design fabrication process:
 
 1. Substrate Preparation: The process begins with preparing a silicon wafer as the foundational substrate for the circuit.
@@ -3210,5 +3176,6 @@ To view the spice file:
 ![image](https://github.com/user-attachments/assets/785a2dcd-1a9c-4726-9432-81d385e707f5)
 
 ![image](https://github.com/user-attachments/assets/efd09108-e2c4-4eeb-8c50-206b70d95b21)
+
 
 
