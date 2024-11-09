@@ -3016,8 +3016,7 @@ A typical standard cell characterization flow that is followed in the industry i
 | in_rise_thr | 50% value |
 | in_fall_thr | 50% value |
 | out_rise_thr | 50% value |
-| out_fall_thr | 50% value   
- |
+| out_fall_thr | 50% value |
 
 **Propagation Delay**: It refers to the time it takes for a change in an input signal to reach 50% of its final value to produce a corresponding change in the output signal to reach 50% of its final value of a digital circuit.
 
@@ -3033,4 +3032,183 @@ Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
 ```
 
 #### Day-3: Design library cell using Magic Layout and ngspice characterization
+
+**CMOS inverter ngspice simulations**
+
+Creating a SPICE Deck for a CMOS Inverter Simulation
+
+- Netlist Creation: Define the component connections (netlist) for a CMOS inverter circuit. Ensure each node is labeled appropriately for easy identification in the SPICE simulation. Typical nodes include input, output, ground, and supply nodes.
+- Device Sizing: Specify the Width-to-Length (W/L) ratios for both the PMOS and NMOS transistors.For proper operation, the PMOS width should be larger than the NMOS width, usually 2x to 3x, to balance the drive strength
+- Voltage Levels: Set gate and supply voltages, often in multiples of the transistor length. 
+- Node Naming: Assign node names to each connection point around the components to clearly identify each element in the SPICE netlist (e.g., VDD, GND, IN, OUT). This helps SPICE recognize each component and simulate the circuit effectively.
+  
+![image](https://github.com/user-attachments/assets/b61efcf4-cd1f-4080-b4dc-4606afc3a2e5)
+
+
+```
+***syntax for PMOS and NMOS desription***
+[component name] [drain] [gate] [source] [substrate] [transistor type] W=[width] L=[length]
+
+ ***simulation commands***
+.op --- is the start of SPICE simulation operation where Vin sweeps from 0 to 2.5 with 0.5 steps
+tsmc_025um_model.mod  ----  model file which contains the technological parameters for the 0.25um NMOS and PMOS 
+```
+Commands to simulate in SPICE:
+
+```
+source [filename].cir
+run
+setplot 
+dc1 
+plot out vs in 
+```
+
+![image](https://github.com/user-attachments/assets/49f1ed28-c601-4954-a3aa-077a2c650650)
+
+The switching threshold Vm is like a critical voltage level for a component called a CMOS inverter. It's the point at which this inverter switches between sending out a "0" or a "1" in a computer chip. This the point where both PMOS and NMOS is in saturation or kind of turned on, and leakage current is high. If PMOS is thicker than NMOS, the CMOS will have higher switching threshold (1.2V vs 1V) while threshold will be lower when NMOS becomes thicker.
+
+At this point, both the transistors are in saturation region, means both are turned on and have high chances of current flowing directly from VDD to Ground called Leakage current.
+
+To find the switching threshold
+
+```
+Vin in 0 2.5
+*** Simulation Command ***
+.op
+.dc Vin 0 2.5 0.05
+```
+![image](https://github.com/user-attachments/assets/61d07ded-adf6-4b6d-8e79-936512557edd)
+
+Transient analysis is used for finding propagation delay. SPICE transient analysis uses pulse input shown below:
+
+![image](https://github.com/user-attachments/assets/af0c7120-e946-4c8f-95c2-c66b130ef415)
+
+The simulation commands:
+
+```
+Vin in 0 0 pulse 0 2.5 0 10p 10p 1n 2n 
+*** Simulation Command ***
+.op
+.tran 10p 4n
+```
+
+Result of SPICE simulation for transient analysis:
+
+![image](https://github.com/user-attachments/assets/e1ed922a-7ac4-4337-aa9e-8dc2f06f23e1)
+
+
+
+Now, we clone the custom inverter
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+git clone https://github.com/nickson-jose/vsdstdcelldesign
+cd vsdstdcelldesign
+cp /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech .
+ls
+magic -T sky130A.tech sky130_inv.mag &
+```
+
+![image](https://github.com/user-attachments/assets/07f803ca-8a02-48d1-80a4-67f2a1a56c69)
+
+![image](https://github.com/user-attachments/assets/7bbdfed0-f2e7-4a08-9079-b63969d54975)
+
+
+**Inception of Layout CMOS fabrication process**
+
+16-mask CMOS process:
+
+1. Selecting a substrate
+
+![image](https://github.com/user-attachments/assets/8f9c6fc8-5a33-4d8e-a7ca-d9bc56798c50)
+
+2. Creating an active region for transistors
+
+![image](https://github.com/user-attachments/assets/6212e21d-ae08-4ef1-98bd-dae581ba1636)
+
+3. N-well and P-well formation
+
+![image](https://github.com/user-attachments/assets/3818351f-fd1e-4661-985b-c7557ec7c530)
+
+4. Formation of 'gate'
+
+![image](https://github.com/user-attachments/assets/d0525812-8296-4511-9812-6365fedbb434)
+
+5. Lighty doped drain(LDD) formation
+
+![image](https://github.com/user-attachments/assets/2c91615e-1c44-4fb5-b2e6-46bc0f993a6b)
+
+6. Source and drain formation
+
+![image](https://github.com/user-attachments/assets/0ce8aeaf-1551-4f1a-8096-47bb80cb8cdf)
+
+7. Local interconnect formation
+
+![image](https://github.com/user-attachments/assets/1434753f-b28c-450a-9392-7e42fb20b335)
+
+8. Higher level metal formation
+
+![image](https://github.com/user-attachments/assets/95d825d2-f245-4c58-90bb-ed28a83fd110)
+
+The 16-mask CMOS design fabrication process:
+
+1. Substrate Preparation: The process begins with preparing a silicon wafer as the foundational substrate for the circuit.
+2. N-Well Formation: The N-well regions are created on the substrate by introducing impurities, typically phosphorus, through ion implantation or diffusion
+3. P-Well Formation: Similar to the N-well formation, P-well regions are created using ion implantation or diffusion with boron or other suitable dopants.
+4. Gate Oxide Deposition: A thin silicon dioxide layer is deposited to form the gate oxide, which insulates the gate from the channel.
+5. Poly-Silicon Deposition: A layer of polysilicon is deposited on the gate oxide to serve as the gate electrode.
+6. Poly-Silicon Masking and Etching: A photoresist mask defines areas where polysilicon should remain, and etching removes exposed portions.
+7. N-Well Masking and Implantation: A photoresist mask is used to define the areas where the N-well regions should be preserved. Phosphorus or other suitable impurities are then implanted into the exposed regions.
+8. P-Well Masking and Implantation: Similarly, a photoresist mask is used to define the areas where the P-well regions should be preserved. Boron or other suitable impurities are implanted into the exposed regions.
+9. Source/Drain Implantation: Using photoresist masks, dopants are implanted to create source and drain regions (e.g., arsenic for NMOS, boron for PMOS).
+10. Gate Formation: The gate electrode is defined by etching the poly-silicon layer using a photoresist mask.
+11. Source/Drain Masking and Etching: A photoresist mask is applied to define the source and drain regions followed by etching to remove the oxide layer in those areas.
+12. Contact/Via Formation: Contact holes or vias are etched through the oxide layer to expose the underlying regions, such as the source/drain regions or poly-silicon gates.
+13. Metal Deposition: A layer of metal, typically aluminum or copper, is deposited on the wafer surface to form the interconnects.
+14. Metal Masking and Etching: A photoresist mask is used to define the metal interconnects, and etching is performed to remove the exposed metal, leaving behind the desired interconnect patterns.
+15. Passivation Layer Deposition: A protective layer, often made of silicon dioxide or nitride, is deposited to isolate and shield the metal interconnects.
+16. Final Testing and Packaging: The fabricated wafer undergoes rigorous testing to ensure the functionality of the integrated circuits. The working chips are then separated, packaged, and prepared for use in various electronic devices.
+
+![image](https://github.com/user-attachments/assets/d24e7009-a71a-437f-94c8-8233c633f775)
+
+Inverter layout:
+
+Identify NMOS:
+
+![image](https://github.com/user-attachments/assets/49aef059-d3aa-4d0c-9259-cd60c7af940c)
+
+Identify PMOS:
+
+![image](https://github.com/user-attachments/assets/bd9c1596-a908-44ec-ba2d-f259acfbeb33)
+
+Output Y:
+
+![image](https://github.com/user-attachments/assets/efe0bc9f-43f6-4e22-9922-b579c6190daa)
+
+PMOS source connected to VDD:
+
+![image](https://github.com/user-attachments/assets/51599137-d1ff-45f1-8609-d5a49822b6b0)
+
+NMOS source connected to VSS:
+
+![image](https://github.com/user-attachments/assets/375df2f4-b388-40d9-9e3c-a971fd3e23b4)
+
+Spice extraction of inverter in Magic. Run these in the tkcon window:
+
+```
+# Check current directory
+pwd
+extract all
+ext2spice cthresh 0 rthresh 0
+ext2spice
+```
+
+![image](https://github.com/user-attachments/assets/ed3c1850-db3c-412e-8947-41cc5d5f44df)
+
+To view the spice file:
+
+![image](https://github.com/user-attachments/assets/785a2dcd-1a9c-4726-9432-81d385e707f5)
+
+![image](https://github.com/user-attachments/assets/efd09108-e2c4-4eeb-8c50-206b70d95b21)
+
 
