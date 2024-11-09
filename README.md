@@ -1,4 +1,4 @@
-# ASIC-Design
+![image](https://github.com/user-attachments/assets/1a8bd355-dfea-4bc2-8a44-f4f3e5d7d025)# ASIC-Design
 
 ## Contents
 
@@ -13,7 +13,7 @@
 - [Task 9: Synthesize RISC-V and compare output with functional simulations](#task-9-Synthesize-RISC-V-and-compare-output-with-functional-simulations)
 - [Task 10: Post Synthesis Static Timing Analysis using OpenSTA](#task-10-Post-Synthesis-Static-Timing-Analysis-using-OpenSTA)
 - [Task 11: Post Synthesis Static Timing Analysis using OpenSTA for all the sky130 lib files](#task-11-Post-Synthesis-Static-Timing-Analysis-using-OpenSTA-for-all-the-sky130-lib-files)
-- [Task 12: Advanced Physical Design using OpenLane/Sky130 ](#task-12-Advanced-Physical-Design-using-OpenLane/Sky130)
+- [Task 12: Advanced Physical Design using OpenLane using Sky130 ](#task-12-Advanced-Physical-Design-using-OpenLane-using-Sky130)
   
 ## Task-1: A C program which calculates the sum of all numbers upto 'n'
 
@@ -2642,7 +2642,7 @@ Graphs:
 ![image](https://github.com/user-attachments/assets/47a9c697-250f-497a-8072-e7c763ac494d)
 
 
-## Task 12: Advanced Physical Design using OpenLane/Sky130
+## Task 12: Advanced Physical Design using OpenLane using Sky130
 
 #### Day-1: Inception of open-source EDA, OpenLane and Sky130 PDK
 
@@ -2739,8 +2739,293 @@ The compiler generates architecture-specific instructions, while the assembler p
 11. Layout vs. Schematic (LVS) Check: The tools used are Netgen (for LVS checks).
 12. Antenna Checks: The tools used are Magic (for antenna checks).
 
+**OpenLANE Directory structure**
+
+``` 
+├── OOpenLane             -> directory where the tool can be invoked (run docker first)
+│   ├── designs          -> All designs must be extracted from this folder
+│   │   │   ├── picorv32a -> Design used as case study for this workshop
+│   |   |   ├── ...
+|   |   ├── ...
+├── pdks                 -> contains pdk related files 
+│   ├── skywater-pdk     -> all Skywater 130nm PDKs
+│   ├── open-pdks        -> contains scripts that makes the commerical PDK (which is normally just compatible to commercial tools) to also be compatible with the open-source EDA tool
+│   ├── sky130A          -> pdk variant made especially compatible for open-source tools
+│   │   │  ├── libs.ref  -> files specific to node process (timing lib, cell lef, tech lef) for example is `sky130_fd_sc_hd` (Sky130nm Foundry Standard Cell High Density)  
+│   │   │  ├── libs.tech -> files specific for the tool (klayout,netgen,magic...) 
+```
+
+**Synthesis in Openlane:**
+
+Go to VSD Virtual Box and run the following commands:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+run_synthesis
+
+```
+
+![image](https://github.com/user-attachments/assets/90ea6a96-5f1e-43e4-bf8e-27f2a5012dc3)
+
+To view the netlist:
+
+```
+cd designs/picorv32a/runs/09-11_06-33/results/synthesis/
+gedit picorv32a.synthesis.v
+```
+
+![image](https://github.com/user-attachments/assets/7e4a4b13-622a-44de-96c2-0a0162fecc7a)
+
+Netlist code:
+
+![image](https://github.com/user-attachments/assets/fa3e9692-0d30-42f3-bc45-c38b2f1d2894)
+
+To view the yosys report:
+
+```
+cd ../..
+cd reports/synthesis
+gedit 1-yosys_4.stat.rpt
+```
+
+![image](https://github.com/user-attachments/assets/8dbe1a51-3198-41c0-b098-d657cf940746)
+
+![image](https://github.com/user-attachments/assets/910e671a-2728-43b8-a677-cc7cc7e17d9d)
 
 
+Report:
 
+```
+28. Printing statistics.
 
+=== picorv32a ===
+
+   Number of wires:              14596
+   Number of wire bits:          14978
+   Number of public wires:        1565
+   Number of public wire bits:    1947
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:              14876
+     sky130_fd_sc_hd__a2111o_2       1
+     sky130_fd_sc_hd__a211o_2       35
+     sky130_fd_sc_hd__a211oi_2      60
+     sky130_fd_sc_hd__a21bo_2      149
+     sky130_fd_sc_hd__a21boi_2       8
+     sky130_fd_sc_hd__a21o_2        57
+     sky130_fd_sc_hd__a21oi_2      244
+     sky130_fd_sc_hd__a221o_2       86
+     sky130_fd_sc_hd__a22o_2      1013
+     sky130_fd_sc_hd__a2bb2o_2    1748
+     sky130_fd_sc_hd__a2bb2oi_2     81
+     sky130_fd_sc_hd__a311o_2        2
+     sky130_fd_sc_hd__a31o_2        49
+     sky130_fd_sc_hd__a31oi_2        7
+     sky130_fd_sc_hd__a32o_2        46
+     sky130_fd_sc_hd__a41o_2         1
+     sky130_fd_sc_hd__and2_2       157
+     sky130_fd_sc_hd__and3_2        58
+     sky130_fd_sc_hd__and4_2       345
+     sky130_fd_sc_hd__and4b_2        1
+     sky130_fd_sc_hd__buf_1       1656
+     sky130_fd_sc_hd__buf_2          8
+     sky130_fd_sc_hd__conb_1        42
+     sky130_fd_sc_hd__dfxtp_2     1613
+     sky130_fd_sc_hd__inv_2       1615
+     sky130_fd_sc_hd__mux2_1      1224
+     sky130_fd_sc_hd__mux2_2         2
+     sky130_fd_sc_hd__mux4_1       221
+     sky130_fd_sc_hd__nand2_2       78
+     sky130_fd_sc_hd__nor2_2       524
+     sky130_fd_sc_hd__nor2b_2        1
+     sky130_fd_sc_hd__nor3_2        42
+     sky130_fd_sc_hd__nor4_2         1
+     sky130_fd_sc_hd__o2111a_2       2
+     sky130_fd_sc_hd__o211a_2       69
+     sky130_fd_sc_hd__o211ai_2       6
+     sky130_fd_sc_hd__o21a_2        54
+     sky130_fd_sc_hd__o21ai_2      141
+     sky130_fd_sc_hd__o21ba_2      209
+     sky130_fd_sc_hd__o21bai_2       1
+     sky130_fd_sc_hd__o221a_2      204
+     sky130_fd_sc_hd__o221ai_2       7
+     sky130_fd_sc_hd__o22a_2      1312
+     sky130_fd_sc_hd__o22ai_2       59
+     sky130_fd_sc_hd__o2bb2a_2     119
+     sky130_fd_sc_hd__o2bb2ai_2     92
+     sky130_fd_sc_hd__o311a_2        8
+     sky130_fd_sc_hd__o31a_2        19
+     sky130_fd_sc_hd__o31ai_2        1
+     sky130_fd_sc_hd__o32a_2       109
+     sky130_fd_sc_hd__o41a_2         2
+     sky130_fd_sc_hd__or2_2       1088
+     sky130_fd_sc_hd__or2b_2        25
+     sky130_fd_sc_hd__or3_2         68
+     sky130_fd_sc_hd__or3b_2         5
+     sky130_fd_sc_hd__or4_2         93
+     sky130_fd_sc_hd__or4b_2         6
+     sky130_fd_sc_hd__or4bb_2        2
+
+   Chip area for module '\picorv32a': 147712.918400
+```
+
+```
+Flop ratio = Number of D Flip flops = 1613  = 0.1084
+             ______________________   _____
+             Total Number of cells    14876
+```
+
+#### Day-2: Good floorplan vs bad floorplan and introduction to library cells
+
+**Utilization Factor and Aspect Ratio**: In IC floor planning, utilization factor and aspect ratio are key parameters. The utilization factor is the ratio of the area occupied by the netlist to the total core area. While a perfect utilization of 1 (100%) is ideal, practical designs target a factor of 0.5 to 0.6 to allow space for buffer zones, routing channels, and future adjustments. The aspect ratio, defined as height divided by width, indicates the chip’s shape; an aspect ratio of 1 denotes a square, while other values result in a rectangular layout. The aspect ratio is chosen based on functional, packaging, and manufacturing needs.
+
+```
+Utilisation Factor =  Area occupied by netlist
+                     __________________________
+                         Total area of core
+                         
+
+Aspect Ratio =  Height
+               ________
+                Width
+```
+
+**Pre-placed cells** : Pre-placed cells are essential functional blocks, such as memory, custom processors, and analog circuits, positioned manually in fixed locations. These blocks are crucial for the chip’s performance and remain fixed during placement and routing to preserve their functionality and layout integrity.
+
+**Decoupling Capacitors** : Decoupling capacitors are placed near logic circuits to stabilize power supply voltages during transient events. Acting as local energy reserves, they help reduce voltage fluctuations, crosstalk, and electromagnetic interference (EMI), ensuring reliable power delivery to sensitive circuits.
+
+**Power Planning**: A robust power planning strategy includes creating a power and ground mesh to distribute VDD and VSS evenly across the chip. This setup ensures stable power delivery, minimizes voltage drops, and improves overall efficiency. Multiple power and ground points reduce the risk of instability and voltage drop issues, supporting the design’s power needs effectively.
+
+**Pin Placement**: Pin placement (I/O planning) is crucial for functionality and reliability. Strategic pin assignment minimizes signal degradation, preserves data integrity, and helps manage heat dissipation. Proper positioning of power and ground pins supports thermal management and enhances signal strength, contributing to overall system stability and manufacturability.
+
+Floorplaning using OpenLANE:
+
+Run the following commands:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane
+docker
+```
+
+```
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a
+run_synthesis
+run_floorplan
+```
+
+![image](https://github.com/user-attachments/assets/afc31385-9905-40e8-adaa-35abf4005c3d)
+
+![image](https://github.com/user-attachments/assets/ef3b3bab-0981-4786-a780-a6332fb9488e)
+
+Now, run the below commands in a new terminal:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/09-11_07-10/results/floorplan
+gedit picorv32a.floorplan.def
+```
+![image](https://github.com/user-attachments/assets/e80db02e-b7ff-4b08-9f40-e546b95d832d)
+
+According to floorplan definition:
+
+1000 Unit Distance = 1 Micron
+Die width in unit distance = 660685−0 = 660685
+Die height in unit distance = 671405−0 = 671405
+Distance in microns = Value in Unit Distance/1000
+​Die width in microns = 660685/1000 = 660.685 Microns
+Die height in microns = 671405/1000 = 671.405 Microns
+Area of die in microns = 660.685 × 671.405 = 443587.212425 Square Microns
+
+To view the floorplan in magic. Open a new terminal and runt he below commands:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/floorplan/
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
+
+![image](https://github.com/user-attachments/assets/9f530208-b891-425d-95a6-a63382ef7f4a)
+
+Decap and Tap Cells:
+
+![image](https://github.com/user-attachments/assets/87f3202e-504c-4a9d-ac3e-4f4512348823)
+
+Unplaces standard cells at origin:
+
+![image](https://github.com/user-attachments/assets/ad0f9db1-a5b2-4237-ac47-1a2030ee9a54)
+
+Command to run placement:
+
+```
+run_placement
+```
+
+![image](https://github.com/user-attachments/assets/97cfa678-2a83-4d8e-a3f4-bc5d4766174a)
+
+To view the placement in magic:
+
+```
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/17-03_12-06/results/placement/
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+
+![image](https://github.com/user-attachments/assets/02b468e4-bae6-4db1-8c9f-2a6489ba23ee)
+
+![image](https://github.com/user-attachments/assets/46e5ece9-3289-406d-894a-0789cf980df9)
+
+**Cell design and Characterization Flow**
+
+Library is a place where we get information about every cell. It has differents cells with different size, functionality,threshold voltages. There is a typical cell design flow steps.
+
+Inputs : PDKS(process design kit) : DRC & LVS, SPICE Models, library & user-defined specs.
+Design Steps :Circuit design, Layout design (Art of layout Euler's path and stick diagram), Extraction of parasitics, Characterization (timing, noise, power).
+Outputs: CDL (circuit description language), LEF, GDSII, extracted SPICE netlist (.cir), timing, noise and power .lib files
+
+**Standard Cell Characterization Flow**
+
+A typical standard cell characterization flow that is followed in the industry includes the following steps:
+
+- Read in the models and tech files
+- Read extracted spice Netlist
+- Recognise behavior of the cells
+- Read the subcircuits
+- Attach power sources
+- Apply stimulus to characterization setup
+- Provide neccesary output capacitance loads
+- Provide neccesary simulation commands
+- Now all these 8 steps are fed in together as a configuration file to a characterization software called GUNA. This software generates timing, noise, power models. These .libs are classified as Timing characterization, power characterization and noise characterization.
+
+**Timing parameters**
+
+| Timing definition | Value |
+|---|---|
+| slew_low_rise_thr | 20% value |
+| slew_high_rise_thr | 80% value |
+| slew_low_fall_thr | 20% value |
+| slew_high_fall_thr | 80% value |
+| in_rise_thr | 50% value |
+| in_fall_thr | 50% value |
+| out_rise_thr | 50% value |
+| out_fall_thr | 50% value   
+ |
+
+**Propagation Delay**: It refers to the time it takes for a change in an input signal to reach 50% of its final value to produce a corresponding change in the output signal to reach 50% of its final value of a digital circuit.
+
+```
+rise delay =  time(out_fall_thr) - time(in_rise_thr)
+```
+
+**Transistion time**: The time it takes the signal to move between states is the transition time , where the time is measured between 10% and 90% or 20% to 80% of the signal levels.
+
+```
+Fall transition time: time(slew_high_fall_thr) - time(slew_low_fall_thr)
+Rise transition time: time(slew_high_rise_thr) - time(slew_low_rise_thr)
+```
+
+#### Day-3: Design library cell using Magic Layout and ngspice characterization
 
