@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/b7e5f9db-9e23-435c-adda-269302066813)
+
 ## Contents
 
 - [Task 1: A C program which calculates the sum of all numbers up to 'n'](#task-1-a-c-program-which-calculates-the-sum-of-all-numbers-up-to-n)
@@ -3423,5 +3423,7 @@ set ::env(SYNTH_SIZING) 1
 echo $::env(SYNTH_DRIVING_CELL)
 run_synthesis
 ```
+
+![Screenshot 2024-11-10 213042](https://github.com/user-attachments/assets/4fa04ff9-96e3-426e-8ea4-3a79e461bbdf)
 
 ![image](https://github.com/user-attachments/assets/31253b5a-105b-4a1b-8529-5cbc9d16b072)
