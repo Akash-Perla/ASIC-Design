@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9be77bb9-991a-4465-b8cd-d9461a74362f)
+
 ## Contents
 
 - [Task 1: A C program which calculates the sum of all numbers up to 'n'](#task-1-a-c-program-which-calculates-the-sum-of-all-numbers-up-to-n)
