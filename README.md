@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/b7e5f9db-9e23-435c-adda-269302066813)
 ## Contents
 
 - [Task 1: A C program which calculates the sum of all numbers up to 'n'](#task-1-a-c-program-which-calculates-the-sum-of-all-numbers-up-to-n)
@@ -3398,3 +3398,30 @@ run_synthesis
 ![image](https://github.com/user-attachments/assets/dd7ada16-e796-4672-b27b-67236f8aca74)
 
 ![Screenshot 2024-11-10 194933](https://github.com/user-attachments/assets/31a5f617-c2d5-4fde-b418-8d14ce42c17d)
+
+![image](https://github.com/user-attachments/assets/5c4a69b4-f059-4e6c-a3b2-f29be5694a0d)
+
+**DElay Tables**
+
+Delay plays a crucial role in cell timing, impacted by input transition and output load. Cells of the same type can have different delays depending on wire length due to resistance and capacitance variations. To manage this, "delay tables" are created, using 2D arrays with input slew and load capacitance for each buffer size as timing models. Algorithms compute buffer delays from these tables, interpolating where exact data isn’t available to estimate delays accurately, preserving signal integrity across varying load conditions.
+
+![image](https://github.com/user-attachments/assets/095a59e1-158c-4870-88e3-b73cb3a3692c)
+
+Fixing slack:
+
+```
+./flow.tcl -interactive
+package require openlane 0.9
+prep -design picorv32a -tag 24-03_10-03 -overwrite
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+echo $::env(SYNTH_STRATEGY)
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+echo $::env(SYNTH_BUFFERING)
+echo $::env(SYNTH_SIZING)
+set ::env(SYNTH_SIZING) 1
+echo $::env(SYNTH_DRIVING_CELL)
+run_synthesis
+```
+
+![image](https://github.com/user-attachments/assets/31253b5a-105b-4a1b-8529-5cbc9d16b072)
