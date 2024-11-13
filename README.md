@@ -2960,7 +2960,7 @@ Decap and Tap Cells:
 
 ![image](https://github.com/user-attachments/assets/87f3202e-504c-4a9d-ac3e-4f4512348823)
 
-Unplaces standard cells at origin:
+Unplaced standard cells at origin:
 
 ![image](https://github.com/user-attachments/assets/ad0f9db1-a5b2-4237-ac47-1a2030ee9a54)
 
@@ -3069,7 +3069,7 @@ The switching threshold Vm is like a critical voltage level for a component call
 
 At this point, both the transistors are in saturation region, means both are turned on and have high chances of current flowing directly from VDD to Ground called Leakage current.
 
-To find the switching threshold
+To find the switching threshold:
 
 ```
 Vin in 0 2.5
@@ -3323,7 +3323,7 @@ The grids show where the routing for the local-interconnet layer can only happen
 
 ![image](https://github.com/user-attachments/assets/28a95f97-0330-4835-b762-4bd1c09167b0)
 
-Now, save it by giving a custon mae
+Now, save it by giving a custom name
 
 ```
 save sky130_akainv.mag
@@ -3562,7 +3562,7 @@ sta pre_sta.conf
 
 We now try to optimise synthesis.
 
-Go to new terminal and run the follwoing commands:
+Go to new terminal and run the following commands:
 
 ```
 cd Desktop/work/tools/openlane_working_dir/openlane
@@ -3675,7 +3675,7 @@ run_cts
 
 ![image](https://github.com/user-attachments/assets/ec16844c-3c39-48b6-be93-a979503df7e7)
 
-The cts is succesfull as shown below:
+The cts is successful as shown below:
 
 ![image](https://github.com/user-attachments/assets/588fb2e5-917e-4a93-a3f4-38306f13b2fa)
 
