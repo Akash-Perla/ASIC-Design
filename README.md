@@ -4346,3 +4346,57 @@ sudo ./setup.sh
 
 ![image](https://github.com/user-attachments/assets/2108fc17-2bb9-40cb-a30c-36cc0490dc8a)
 
+![image](https://github.com/user-attachments/assets/8cc97b6f-f231-4f19-9bd9-e2da6e5980b3)
+
+**Verify Installation**
+
+```
+source ./env.sh
+yosys -help
+openroad -help
+cd flow
+make
+```
+![image](https://github.com/user-attachments/assets/168b53ca-fb2d-441d-8aa8-2b0178abbb54)
+
+![image](https://github.com/user-attachments/assets/aaf920bb-12e3-4044-a0a9-930b3ef748e9)
+
+```
+make gui_final
+```
+![image](https://github.com/user-attachments/assets/a7b0cca8-5296-4805-88fd-485a720e1bd5)
+
+
+**ORFS Directory Structure and File formats**
+
+![image](https://github.com/user-attachments/assets/e4f741ad-3f48-4e9a-a799-c8ff95bc74cf)
+
+
+``` 
+├── OpenROAD-flow-scripts             
+│   ├── docker           -> It has Docker based installation, run scripts and all saved here
+│   ├── docs             -> Documentation for OpenROAD or its flow scripts.  
+│   ├── flow             -> Files related to run RTL to GDS flow  
+|   ├── jenkins          -> It contains the regression test designed for each build update
+│   ├── tools            -> It contains all the required tools to run RTL to GDS flow
+│   ├── etc              -> Has the dependency installer script and other things
+│   ├── setup_env.sh     -> Its the source file to source all our OpenROAD rules to run the RTL to GDS flow
+```
+
+Now, go to flow directory
+
+![image](https://github.com/user-attachments/assets/70cb9a6b-b48c-497e-a050-dd6a5b90ea1d)
+
+``` 
+├── flow           
+│   ├── design           -> It has built-in examples from RTL to GDS flow across different technology nodes
+│   ├── makefile         -> The automated flow runs through makefile setup
+│   ├── platform         -> It has different technology note libraries, lef files, GDS etc 
+|   ├── tutorials        
+│   ├── util            
+│   ├── scripts             
+```
+
+
+
+
