@@ -4328,4 +4328,21 @@ BS-PDNs involve routing power supply rails on the backside of the chip, enabling
 By adopting BS-PDNs, semiconductor manufacturers can develop high-performance and energy-efficient integrated circuits that meet the demands of modern electronics.
 
 
+**Installing and setting up ORFS**
+
+```
+git clone --recursive https://github.com/The-OpenROAD-Project/OpenROAD-flow-scripts
+cd OpenROAD-flow-scripts
+sudo ./setup.sh
+```
+
+![image](https://github.com/user-attachments/assets/bec63ae7-4659-42e3-9c01-159a380316a7)
+
+![image](https://github.com/user-attachments/assets/45108685-7362-47ee-b148-e7d1a7552a18)
+
+```
+./build_openroad.sh --local
+```
+
+![image](https://github.com/user-attachments/assets/2108fc17-2bb9-40cb-a30c-36cc0490dc8a)
 
