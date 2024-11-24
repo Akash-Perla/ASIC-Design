@@ -4397,6 +4397,73 @@ Now, go to flow directory
 │   ├── scripts             
 ```
 
+Automated RTL2GDS Flow for VSDBabySoC:
+
+Initial Steps:
+
+- We need to create a directory `vsdbabysoc` inside `OpenROAD-flow-scripts/flow/designs/sky130hd`
+- Now copy the folders `gds`, `include`, `lef` and `lib` from the VSDBabySoC folder in your system into this directory.
+  - The `gds` folder would contain the files `avsddac.gds` and `avsdpll.gds`
+  - The `include` folder would contain the files `sandpiper.vh`, `sandpiper_gen.vh`, `sp_default.vh` and `sp_verilog.vh`
+  - The `gds` folder would contain the files `avsddac.lef` and `avsdpll.lef`
+  - The `lib` folder would contain the files `avsddac.lib` and `avsdpll.lib`
+- Now copy the constraints file(`vsdbabysoc_synthesis.sdc`) from the VSDBabySoC folder in your system into this directory.
+- Now copy the files(`macro.cfg` and `pin_order.cfg`) from the VSDBabySoC folder in your system into this directory.
+- Now, create a macro.cfg file whose contents are shown below:
+
+```
+```
+
+Now go to terminal and run the following commands:
+
+```
+cd OpenROAD-flow-scripts
+source env.sh
+cd flow
+```
+
+Commands for **synthesis**:
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk synth
+```
+
+![image](https://github.com/user-attachments/assets/b61006cd-554c-425d-9bfb-6d6fa947118d)
+
+![image](https://github.com/user-attachments/assets/353513a3-8272-4ddf-b178-eff0d70650a9)
+
+Synthesis netlist:
+
+![image](https://github.com/user-attachments/assets/c2464bd4-c95a-4917-b71d-4ffb7f031950)
+
+Synthesis log:
+
+![image](https://github.com/user-attachments/assets/9cd5f73d-a4cc-4174-889d-872eeff31fe0)
+
+Synthesis Check:
+
+![image](https://github.com/user-attachments/assets/aba75cdc-42ae-4989-b566-3f812ac5667d)
+
+Synthesis Stats:
+
+![image](https://github.com/user-attachments/assets/8553380f-abbb-4ea4-be61-5a59d092ed50)
+
+![image](https://github.com/user-attachments/assets/b8bfc7c4-6a90-4697-8ad6-a3f33992f89d)
+
+![image](https://github.com/user-attachments/assets/11ef305e-06b7-4124-a279-16198e18f120)
+
+![image](https://github.com/user-attachments/assets/d1b7114f-8e88-465a-b4ba-c2f32a8bf312)
+
+Commands for **floorplan**:
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk floorplan
+```
+
+![image](https://github.com/user-attachments/assets/0b6f425e-d212-45d3-8638-f4830a2c32ea)
+
+
+
 
 
 
