@@ -4538,3 +4538,38 @@ make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_place
 ![image](https://github.com/user-attachments/assets/8df8d550-d1e7-447e-8e7d-3a56f8043f87)
 
 ![image](https://github.com/user-attachments/assets/1b2c60f4-cb75-405d-a2ba-0e200a48b299)
+
+Heatmap:
+
+![image](https://github.com/user-attachments/assets/08984176-1b8b-4326-ac68-8aeb3c9262b9)
+
+![image](https://github.com/user-attachments/assets/f4297129-92d3-49ab-b993-ae70597a4891)
+
+![image](https://github.com/user-attachments/assets/c0c8e9ca-7960-4cb0-bd36-b9601f0697db)
+
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk cts
+```
+
+![image](https://github.com/user-attachments/assets/fbd2d4a2-248a-450f-bdcc-fd0ab0c9c2f4)
+
+![image](https://github.com/user-attachments/assets/a17cd95d-cfb8-47f2-9e79-a2e71d0499d6)
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk gui_cts
+```
+
+![image](https://github.com/user-attachments/assets/7a390b9d-90f1-406b-b397-254187828bfd)
+
+![image](https://github.com/user-attachments/assets/b43cfb6a-f095-4c9f-adc2-b562b42142b4)
+
+![image](https://github.com/user-attachments/assets/da5935db-358b-4edc-ade0-9823625ba062)
+
+```
+make DESIGN_CONFIG=./designs/sky130hd/vsdbabysoc/config.mk route
+```
+
+![image](https://github.com/user-attachments/assets/6d3b1559-69e7-4a4d-889a-c213d037d6d4)
+
+![image](https://github.com/user-attachments/assets/8f91a046-882d-40a3-8b8e-ebcb57f961fc)
