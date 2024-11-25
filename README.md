@@ -4402,6 +4402,7 @@ Automated RTL2GDS Flow for VSDBabySoC:
 Initial Steps:
 
 - We need to create a directory `vsdbabysoc` inside `OpenROAD-flow-scripts/flow/designs/sky130hd`
+- Now create a directory `vsdbabysoc` inside `OpenROAD-flow-scripts/flow/designs/src` and include all the verilog files here.
 - Now copy the folders `gds`, `include`, `lef` and `lib` from the VSDBabySoC folder in your system into this directory.
   - The `gds` folder would contain the files `avsddac.gds` and `avsdpll.gds`
   - The `include` folder would contain the files `sandpiper.vh`, `sandpiper_gen.vh`, `sp_default.vh` and `sp_verilog.vh`
@@ -4409,7 +4410,7 @@ Initial Steps:
   - The `lib` folder would contain the files `avsddac.lib` and `avsdpll.lib`
 - Now copy the constraints file(`vsdbabysoc_synthesis.sdc`) from the VSDBabySoC folder in your system into this directory.
 - Now copy the files(`macro.cfg` and `pin_order.cfg`) from the VSDBabySoC folder in your system into this directory.
-- Now, create a macro.cfg file whose contents are shown below:
+- Now, create a `config.mk` file whose contents are shown below:
 
 ```
 ```
